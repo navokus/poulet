@@ -103,6 +103,8 @@
 		45FB31AB1D9574F900766F15 /* icon-web@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45FB31A81D9574F900766F15 /* icon-web@3x.png */; };
 		45FB31AD1D9575DD00766F15 /* KQLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB31AC1D9575DD00766F15 /* KQLogView.swift */; };
 		45FB31AF1D957B4F00766F15 /* listError.json in Resources */ = {isa = PBXBuildFile; fileRef = 45FB31AE1D957B4F00766F15 /* listError.json */; };
+		45FB31B11D95821A00766F15 /* KQSolutionAnalyseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB31B01D95821A00766F15 /* KQSolutionAnalyseView.swift */; };
+		45FB31B31D95829D00766F15 /* KQIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB31B21D95829D00766F15 /* KQIndicatorView.swift */; };
 		A4BB8AD9C75867ABFAEFEF95 /* Pods_iPoulet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90565D667B04C5656D892F36 /* Pods_iPoulet.framework */; };
 /* End PBXBuildFile section */
 
@@ -232,6 +234,8 @@
 		45FB31A81D9574F900766F15 /* icon-web@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-web@3x.png"; sourceTree = "<group>"; };
 		45FB31AC1D9575DD00766F15 /* KQLogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQLogView.swift; sourceTree = "<group>"; };
 		45FB31AE1D957B4F00766F15 /* listError.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listError.json; sourceTree = "<group>"; };
+		45FB31B01D95821A00766F15 /* KQSolutionAnalyseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQSolutionAnalyseView.swift; sourceTree = "<group>"; };
+		45FB31B21D95829D00766F15 /* KQIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQIndicatorView.swift; sourceTree = "<group>"; };
 		685768F8374C09AAEFCE6299 /* Pods-iPoulet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPoulet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iPoulet/Pods-iPoulet.debug.xcconfig"; sourceTree = "<group>"; };
 		90565D667B04C5656D892F36 /* Pods_iPoulet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iPoulet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -327,6 +331,7 @@
 				45FB31661D95250800766F15 /* KQSearchBar.swift */,
 				45FB31671D95250800766F15 /* KQSearchController.swift */,
 				45FB311F1D9504AF00766F15 /* KQNavigationController.swift */,
+				45FB31B21D95829D00766F15 /* KQIndicatorView.swift */,
 				45FB315C1D950C2400766F15 /* KQErrorCell.swift */,
 				45FB315E1D950E0500766F15 /* KQErrorView.swift */,
 				45FB31601D951C5500766F15 /* KQSettingCell.swift */,
@@ -346,6 +351,7 @@
 				45FB31241D95051300766F15 /* KQAnalyseView.swift */,
 				45FB31261D95052200766F15 /* KQNewsView.swift */,
 				45FB31641D95247000766F15 /* KQSolutionView.swift */,
+				45FB31B01D95821A00766F15 /* KQSolutionAnalyseView.swift */,
 				45FB31281D95052F00766F15 /* KQSettingView.swift */,
 			);
 			name = view;
@@ -710,6 +716,7 @@
 				45FB30BE1D95041900766F15 /* Reachability.swift in Sources */,
 				45FB315F1D950E0500766F15 /* KQErrorView.swift in Sources */,
 				45FB31121D95049D00766F15 /* KQSize.swift in Sources */,
+				45FB31B11D95821A00766F15 /* KQSolutionAnalyseView.swift in Sources */,
 				45FB31151D95049D00766F15 /* KQFileHandle.swift in Sources */,
 				45FB31251D95051300766F15 /* KQAnalyseView.swift in Sources */,
 				45FB31201D9504AF00766F15 /* KQTabBarController.swift in Sources */,
@@ -721,6 +728,7 @@
 				45FB31111D95049D00766F15 /* KQData.swift in Sources */,
 				45FB31131D95049D00766F15 /* KQConst.swift in Sources */,
 				45FB31291D95052F00766F15 /* KQSettingView.swift in Sources */,
+				45FB31B31D95829D00766F15 /* KQIndicatorView.swift in Sources */,
 				45FB31231D95050400766F15 /* KQMainView.swift in Sources */,
 				45FB31711D9566C500766F15 /* KQPouletRequest.swift in Sources */,
 				45FB30E81D95043C00766F15 /* MDCircularProgressLayer.m in Sources */,

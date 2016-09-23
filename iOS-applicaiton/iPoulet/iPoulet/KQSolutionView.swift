@@ -58,7 +58,13 @@ extension KQSolutionView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.listSolution.count
+//        return self.listSolution.count
+        if (self.shouldShowSearchResults) {
+            return self.filteredTableData.count
+        }
+        else {
+            return self.listSolution.count
+        }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -67,7 +73,14 @@ extension KQSolutionView: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let iSolution: KQSolution = self.listSolution.objectAtIndex(indexPath.row) as! KQSolution
+        
+        var iSolution = KQSolution()
+        
+        if (self.shouldShowSearchResults) {
+            iSolution = self.filteredTableData[indexPath.row]
+        } else {
+            iSolution = self.listSolution.objectAtIndex(indexPath.row) as! KQSolution
+        }
         
         let cell = KQSolutionCell(style: .Default, reuseIdentifier: "solutionCell")
         cell.title.text = iSolution.title
@@ -95,7 +108,28 @@ extension KQSolutionView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var iSolution = KQSolution()
         
+        if (self.shouldShowSearchResults) {
+            iSolution = self.filteredTableData[indexPath.row]
+        } else {
+            iSolution = self.listSolution.objectAtIndex(indexPath.row) as! KQSolution
+        }
+        
+        KQData.setCurrentItem(iSolution)
+        
+        if KQNetwork.reachNetwork().isReachable() {
+            self.showRSSView(iSolution)
+        } else {
+            KQData.showToast("Không có kết nối!")
+        }
+    }
+    
+    func showRSSView(rssItem: KQSolution) {
+        let rssView = KQSolutionAnalyseView()
+        rssView.webLink = NSURL(string: rssItem.link)
+        
+        self.navigationController?.pushViewController(rssView, animated: true)
     }
 }
 
@@ -171,7 +205,7 @@ extension KQSolutionView: KQSearchControllerDelegate {
     func didChangeSearchText(searchText: String) {
         self.filteredTableData.removeAll(keepCapacity: false)
         
-        let searchPredicate = NSPredicate(format: "firstname CONTAINS[c] %@", searchText)
+        let searchPredicate = NSPredicate(format: "title CONTAINS[c] %@", searchText)
         let array = (self.listSolution as NSArray).filteredArrayUsingPredicate(searchPredicate)
         self.filteredTableData = array as! [KQSolution]
         

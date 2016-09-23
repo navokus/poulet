@@ -100,7 +100,7 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
         self.contactButton.setTitle("Trợ giúp", forState: .Normal)
         self.contactButton.titleLabel?.font = UIFont.boldSystemFontOfSize(16.0)
         self.contactButton.backgroundColor = OB_COLOR
-        self.contactButton.addTarget(self, action: #selector(KQMainView.scanWebsite), forControlEvents: .TouchDown)
+        self.contactButton.addTarget(self, action: #selector(KQMainView.contactSupport), forControlEvents: .TouchDown)
         self.view.addSubview(self.contactButton)
     }
     

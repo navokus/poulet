@@ -29,7 +29,7 @@ class KQIndicatorView: UIView {
         }
         
         
-        let viewHeight: CGFloat = (KQData.Height() - 4 * spaceY)/6
+        let viewHeight: CGFloat = (KQSize.Height() - 4 * spaceY)/6
         
         self.backgroundColor = UIColor.clearColor()
         

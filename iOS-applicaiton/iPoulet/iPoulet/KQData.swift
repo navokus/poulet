@@ -19,6 +19,8 @@ var iColor: UInt32!
 
 var iListError: NSMutableArray!//[KQSolution]!
 
+var iCurrentItem: KQSolution?
+
 
 class KQData: NSObject {
 
@@ -261,6 +263,17 @@ class KQData: NSObject {
         iListError = temp
     }
     
+    class func CurrentItem() -> KQSolution? {
+        return iCurrentItem
+    }
+    
+    class func setCurrentItem(item: KQSolution) {
+        iCurrentItem = KQSolution()
+        iCurrentItem?.id = item.id
+        iCurrentItem?.title = item.title
+        iCurrentItem?.type = item.type
+        iCurrentItem?.link = item.link
+    }
         
 }
 
