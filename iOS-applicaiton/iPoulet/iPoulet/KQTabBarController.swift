@@ -14,7 +14,7 @@ class KQTabBarController: UITabBarController {
         
         let firstView = KQMainView()
         let secondView = KQAnalyseView()
-        let thirdView = KQNewsView()
+        let thirdView = KQSolutionView()
         let fourthView = KQSettingView()
         
         let firstNavigation: KQNavigationController = KQNavigationController(rootViewController: firstView)
@@ -50,7 +50,7 @@ class KQTabBarController: UITabBarController {
         
         let tabbarController = UITabBarController()
         tabbarController.viewControllers = [firstNavigation, secondNavigation, thirdNavigation, fourthNavigation]
-        tabbarController.selectedIndex = 0        
+        tabbarController.selectedIndex = 0
         tabbarController.tabBar.barTintColor = BD_COLOR
 
         return tabbarController

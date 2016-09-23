@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		45FB309F1D94DFFB00766F15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB309E1D94DFFB00766F15 /* AppDelegate.swift */; };
-		45FB30A11D94DFFB00766F15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB30A01D94DFFB00766F15 /* ViewController.swift */; };
 		45FB30A41D94DFFB00766F15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45FB30A21D94DFFB00766F15 /* Main.storyboard */; };
 		45FB30A61D94DFFB00766F15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45FB30A51D94DFFB00766F15 /* Assets.xcassets */; };
 		45FB30A91D94DFFB00766F15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45FB30A71D94DFFB00766F15 /* LaunchScreen.storyboard */; };
@@ -78,6 +77,15 @@
 		45FB31591D95069100766F15 /* icon-setting-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 45FB314D1D95069100766F15 /* icon-setting-selected.png */; };
 		45FB315A1D95069100766F15 /* icon-setting-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45FB314E1D95069100766F15 /* icon-setting-selected@2x.png */; };
 		45FB315B1D95069100766F15 /* icon-setting-selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45FB314F1D95069100766F15 /* icon-setting-selected@3x.png */; };
+		45FB315D1D950C2400766F15 /* KQErrorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB315C1D950C2400766F15 /* KQErrorCell.swift */; };
+		45FB315F1D950E0500766F15 /* KQErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB315E1D950E0500766F15 /* KQErrorView.swift */; };
+		45FB31611D951C5500766F15 /* KQSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB31601D951C5500766F15 /* KQSettingCell.swift */; };
+		45FB31631D951F1000766F15 /* KQNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB31621D951F1000766F15 /* KQNewsCell.swift */; };
+		45FB31651D95247000766F15 /* KQSolutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB31641D95247000766F15 /* KQSolutionView.swift */; };
+		45FB31681D95250800766F15 /* KQSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB31661D95250800766F15 /* KQSearchBar.swift */; };
+		45FB31691D95250800766F15 /* KQSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB31671D95250800766F15 /* KQSearchController.swift */; };
+		45FB316B1D9525EB00766F15 /* KQSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB316A1D9525EB00766F15 /* KQSolution.swift */; };
+		45FB316D1D9526FB00766F15 /* KQSolutionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB316C1D9526FB00766F15 /* KQSolutionCell.swift */; };
 		A4BB8AD9C75867ABFAEFEF95 /* Pods_iPoulet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90565D667B04C5656D892F36 /* Pods_iPoulet.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,7 +93,6 @@
 		02228E86BB99892CB44C0FAE /* Pods-iPoulet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPoulet.release.xcconfig"; path = "Pods/Target Support Files/Pods-iPoulet/Pods-iPoulet.release.xcconfig"; sourceTree = "<group>"; };
 		45FB309B1D94DFFB00766F15 /* iPoulet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPoulet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45FB309E1D94DFFB00766F15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		45FB30A01D94DFFB00766F15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		45FB30A31D94DFFB00766F15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45FB30A51D94DFFB00766F15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45FB30A81D94DFFB00766F15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -182,6 +189,15 @@
 		45FB314D1D95069100766F15 /* icon-setting-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-setting-selected.png"; sourceTree = "<group>"; };
 		45FB314E1D95069100766F15 /* icon-setting-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-setting-selected@2x.png"; sourceTree = "<group>"; };
 		45FB314F1D95069100766F15 /* icon-setting-selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-setting-selected@3x.png"; sourceTree = "<group>"; };
+		45FB315C1D950C2400766F15 /* KQErrorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQErrorCell.swift; sourceTree = "<group>"; };
+		45FB315E1D950E0500766F15 /* KQErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQErrorView.swift; sourceTree = "<group>"; };
+		45FB31601D951C5500766F15 /* KQSettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQSettingCell.swift; sourceTree = "<group>"; };
+		45FB31621D951F1000766F15 /* KQNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQNewsCell.swift; sourceTree = "<group>"; };
+		45FB31641D95247000766F15 /* KQSolutionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQSolutionView.swift; sourceTree = "<group>"; };
+		45FB31661D95250800766F15 /* KQSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQSearchBar.swift; sourceTree = "<group>"; };
+		45FB31671D95250800766F15 /* KQSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQSearchController.swift; sourceTree = "<group>"; };
+		45FB316A1D9525EB00766F15 /* KQSolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQSolution.swift; sourceTree = "<group>"; };
+		45FB316C1D9526FB00766F15 /* KQSolutionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KQSolutionCell.swift; sourceTree = "<group>"; };
 		685768F8374C09AAEFCE6299 /* Pods-iPoulet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPoulet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iPoulet/Pods-iPoulet.debug.xcconfig"; sourceTree = "<group>"; };
 		90565D667B04C5656D892F36 /* Pods_iPoulet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iPoulet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -271,7 +287,15 @@
 			isa = PBXGroup;
 			children = (
 				45FB311E1D9504AF00766F15 /* KQTabBarController.swift */,
+				45FB31661D95250800766F15 /* KQSearchBar.swift */,
+				45FB31671D95250800766F15 /* KQSearchController.swift */,
 				45FB311F1D9504AF00766F15 /* KQNavigationController.swift */,
+				45FB315C1D950C2400766F15 /* KQErrorCell.swift */,
+				45FB315E1D950E0500766F15 /* KQErrorView.swift */,
+				45FB31601D951C5500766F15 /* KQSettingCell.swift */,
+				45FB31621D951F1000766F15 /* KQNewsCell.swift */,
+				45FB316A1D9525EB00766F15 /* KQSolution.swift */,
+				45FB316C1D9526FB00766F15 /* KQSolutionCell.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -282,6 +306,7 @@
 				45FB31221D95050400766F15 /* KQMainView.swift */,
 				45FB31241D95051300766F15 /* KQAnalyseView.swift */,
 				45FB31261D95052200766F15 /* KQNewsView.swift */,
+				45FB31641D95247000766F15 /* KQSolutionView.swift */,
 				45FB31281D95052F00766F15 /* KQSettingView.swift */,
 			);
 			name = view;
@@ -291,7 +316,6 @@
 			isa = PBXGroup;
 			children = (
 				45FB309E1D94DFFB00766F15 /* AppDelegate.swift */,
-				45FB30A01D94DFFB00766F15 /* ViewController.swift */,
 				45FB30A21D94DFFB00766F15 /* Main.storyboard */,
 				45FB30A51D94DFFB00766F15 /* Assets.xcassets */,
 				45FB30A71D94DFFB00766F15 /* LaunchScreen.storyboard */,
@@ -590,6 +614,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45FB31631D951F1000766F15 /* KQNewsCell.swift in Sources */,
 				45FB30E11D95043C00766F15 /* MDRippleLayer.m in Sources */,
 				45FB31071D95046F00766F15 /* DTTimePeriodCollection.m in Sources */,
 				45FB30BC1D95041100766F15 /* UIColor+Chameleon.m in Sources */,
@@ -599,27 +624,33 @@
 				45FB311A1D9504A400766F15 /* KQNetwork.swift in Sources */,
 				45FB30E51D95043C00766F15 /* UIFontHelper.m in Sources */,
 				45FB31141D95049D00766F15 /* Extension.swift in Sources */,
+				45FB315D1D950C2400766F15 /* KQErrorCell.swift in Sources */,
 				45FB310A1D95046F00766F15 /* NSDate+InternetDateTime.m in Sources */,
 				45FB31031D95046F00766F15 /* DTConstants.m in Sources */,
 				45FB30E31D95043C00766F15 /* MDTouchGestureRecognizer.m in Sources */,
 				45FB30EA1D95043C00766F15 /* MDProgressLayer.m in Sources */,
 				45FB30E21D95043C00766F15 /* UIColorHelper.m in Sources */,
 				45FB31061D95046F00766F15 /* DTTimePeriodChain.m in Sources */,
+				45FB31691D95250800766F15 /* KQSearchController.swift in Sources */,
 				45FB30E01D95043C00766F15 /* MDButton.m in Sources */,
 				45FB30E41D95043C00766F15 /* UIViewHelper.m in Sources */,
+				45FB31681D95250800766F15 /* KQSearchBar.swift in Sources */,
 				45FB311B1D9504A400766F15 /* KQShare.swift in Sources */,
 				45FB30E91D95043C00766F15 /* MDLinearProgressLayer.m in Sources */,
-				45FB30A11D94DFFB00766F15 /* ViewController.swift in Sources */,
+				45FB31611D951C5500766F15 /* KQSettingCell.swift in Sources */,
 				45FB311C1D9504A400766F15 /* KQNotification.swift in Sources */,
 				45FB31081D95046F00766F15 /* DTTimePeriodGroup.m in Sources */,
 				45FB311D1D9504A400766F15 /* KQConfigure.swift in Sources */,
 				45FB30BE1D95041900766F15 /* Reachability.swift in Sources */,
+				45FB315F1D950E0500766F15 /* KQErrorView.swift in Sources */,
 				45FB31121D95049D00766F15 /* KQSize.swift in Sources */,
 				45FB31151D95049D00766F15 /* KQFileHandle.swift in Sources */,
 				45FB31251D95051300766F15 /* KQAnalyseView.swift in Sources */,
 				45FB31201D9504AF00766F15 /* KQTabBarController.swift in Sources */,
+				45FB316B1D9525EB00766F15 /* KQSolution.swift in Sources */,
 				45FB30E61D95043C00766F15 /* MDDeviceHelper.m in Sources */,
 				45FB309F1D94DFFB00766F15 /* AppDelegate.swift in Sources */,
+				45FB316D1D9526FB00766F15 /* KQSolutionCell.swift in Sources */,
 				45FB31211D9504AF00766F15 /* KQNavigationController.swift in Sources */,
 				45FB31111D95049D00766F15 /* KQData.swift in Sources */,
 				45FB31131D95049D00766F15 /* KQConst.swift in Sources */,
@@ -632,6 +663,7 @@
 				45FB30E71D95043C00766F15 /* MDTableViewCell.m in Sources */,
 				45FB30DF1D95043C00766F15 /* MDToast.m in Sources */,
 				45FB31051D95046F00766F15 /* DTTimePeriod.m in Sources */,
+				45FB31651D95247000766F15 /* KQSolutionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

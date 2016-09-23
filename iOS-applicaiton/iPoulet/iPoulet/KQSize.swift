@@ -28,7 +28,7 @@ class KQSize: NSObject {
         if KQData.iPad() {
             return 30.0
         }
-        return 16.0
+        return 18.0
     }
         
     // -- Set screen width
