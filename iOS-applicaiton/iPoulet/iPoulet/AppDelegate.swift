@@ -16,7 +16,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        KQFileHandle.setEncrypted(true)
+        
+        print("Documents link: \(kDocuments)")
+        
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+        if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad{
+            KQData.setIsIPad(true)
+        }
+        else{
+            KQData.setIsIPad(false)
+        }
+        
+        // -- Network & Configure
+        KQConfigure.getConfigInfor()
+        KQNetwork.listenNetwork()
+        
+        
+        // Time idle & Notification
+        UIApplication.sharedApplication().idleTimerDisabled = true
+        
+        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound], categories: nil))
+        
+        let screenSize: CGSize = UIScreen.mainScreen().bounds.size
+        KQSize.setWidth(screenSize.width)
+        KQSize.setHeight(screenSize.height)
+        
+        let randomIndex: UInt32 = (arc4random()) % 6
+        KQData.setColorIndex(randomIndex)
+        
+        
+        self.setRootViewController()
+        
         return true
+    }
+    
+    func setRootViewController() {
+        // -- Set root view
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController =  KQTabBarController.TabBarController()
+        self.window?.makeKeyAndVisible()
+        self.window?.backgroundColor = BG_COLOR
+        KQData.setRootView((self.window?.rootViewController)!)
     }
 
     func applicationWillResignActive(application: UIApplication) {

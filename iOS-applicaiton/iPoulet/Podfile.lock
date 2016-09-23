@@ -1,0 +1,47 @@
+PODS:
+  - Alamofire (3.4.1)
+  - Charts (2.2.5):
+    - Charts/Core (= 2.2.5)
+  - Charts/Core (2.2.5)
+  - FloatingActionSheetController (1.1.0)
+  - Hokusai (0.3.0)
+  - LiquidFloatingActionButton (1.2.0)
+  - NumberMorphView (0.1.1)
+  - NVActivityIndicatorView (2.9)
+  - PageMenu (1.2.9)
+  - PasswordTextField (1.0.3)
+  - PopupController (0.1.1)
+  - PopupDialog (0.3.3)
+  - SwiftyJSON (2.3.2)
+
+DEPENDENCIES:
+  - Alamofire
+  - Charts
+  - FloatingActionSheetController
+  - Hokusai
+  - LiquidFloatingActionButton
+  - NumberMorphView
+  - NVActivityIndicatorView
+  - PageMenu
+  - PasswordTextField
+  - PopupController
+  - PopupDialog
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
+  FloatingActionSheetController: 229e0cfe96d691b97c91900f9b6d54ece6bf93bd
+  Hokusai: 6403bdc96ccedce94c9762b527a1daaa600675cc
+  LiquidFloatingActionButton: 9c28961915754e08cf596ea6bdd60f9cd949f172
+  NumberMorphView: c973665c449a7241ed6a9c83d5ff708169531f7c
+  NVActivityIndicatorView: 0084f6be71bdf4735b5424ebfb530b1e3db3276c
+  PageMenu: ba19ff267f7a19e444e93c20a7847b78954a7011
+  PasswordTextField: f4e0867042f7b00046ede38c2b8067602affa0dc
+  PopupController: 3cac2aeeeeeb17e3e64a0e3f85c66299bfc2d276
+  PopupDialog: d6e75fa780d1b3fb1a3044f885a2c6c4c13f10fe
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+
+PODFILE CHECKSUM: c2ad6d60acf7f0f2788f33dafe8517c31d91f26e
+
+COCOAPODS: 1.0.1
