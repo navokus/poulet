@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         KQConfigure.getConfigInfor()
         KQNetwork.listenNetwork()
         
+        
+        self.getListErrorFromFile()
         
         // Time idle & Notification
         UIApplication.sharedApplication().idleTimerDisabled = true
@@ -86,6 +89,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    
+    func getListErrorFromFile() {
+        KQData.setListError(NSMutableArray())
+        
+        let jsonPath = NSBundle.mainBundle().pathForResource("listError", ofType: "json")
+        let jsonData = NSData(contentsOfFile: jsonPath!)
+        
+        let json = JSON(data: jsonData!)
+        
+        let listBeacon = NSMutableArray()
+        
+        for (_, beacon):(String, JSON) in json {
+            let iBeacon = KQSolution()
+            iBeacon.id = beacon["id"].stringValue
+            iBeacon.title = beacon["title"].stringValue
+            iBeacon.type = beacon["type"].stringValue
+            
+            listBeacon.addObject(iBeacon)
+        }
+        
+        KQData.setListError(listBeacon)
+    }
 
 }
 

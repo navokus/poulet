@@ -65,7 +65,7 @@ class KQShare: NSObject {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.setToRecipients([])
-            mail.setSubject("[EISTI] " + title)
+            mail.setSubject("[Poulet] " + title)
             mail.setMessageBody(content, isHTML: false)
             
             completionHandler(mail: mail)
@@ -78,7 +78,7 @@ class KQShare: NSObject {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.setToRecipients(recipers)
-            mail.setSubject("[EISTI] " + title)
+            mail.setSubject("[Poulet] " + title)
             mail.setMessageBody(content, isHTML: false)
             
             completionHandler(mail: mail)

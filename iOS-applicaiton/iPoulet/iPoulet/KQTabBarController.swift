@@ -22,17 +22,17 @@ class KQTabBarController: UITabBarController {
         let thirdNavigation: KQNavigationController = KQNavigationController(rootViewController: thirdView)
         let fourthNavigation: KQNavigationController = KQNavigationController(rootViewController: fourthView)
 
-        let firstTab = UITabBarItem(title: "", image: UIImage(named: "bar-main"), selectedImage: UIImage(named: "bar-main-selected"))
+        let firstTab = UITabBarItem(title: "", image: UIImage(named: "bar-home"), selectedImage: UIImage(named: "bar-home-selected"))
         firstTab.image = firstTab.image?.imageWithRenderingMode(.AlwaysOriginal)
         firstTab.selectedImage = firstTab.selectedImage?.imageWithRenderingMode(.AlwaysOriginal)
         firstTab.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
         
-        let secondTab = UITabBarItem(title: "", image: UIImage(named: "bar-posture"), selectedImage: UIImage(named: "bar-posture-selected"))
+        let secondTab = UITabBarItem(title: "", image: UIImage(named: "bar-learn"), selectedImage: UIImage(named: "bar-learn-selected"))
         secondTab.image = secondTab.image?.imageWithRenderingMode(.AlwaysOriginal)
         secondTab.selectedImage = secondTab.selectedImage?.imageWithRenderingMode(.AlwaysOriginal)
         secondTab.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
         
-        let thirdTab = UITabBarItem(title: "", image: UIImage(named: "bar-learn"), selectedImage: UIImage(named: "bar-learn-selected"))
+        let thirdTab = UITabBarItem(title: "", image: UIImage(named: "bar-posture"), selectedImage: UIImage(named: "bar-posture-selected"))
         thirdTab.image = thirdTab.image?.imageWithRenderingMode(.AlwaysOriginal)
         thirdTab.selectedImage = thirdTab.selectedImage?.imageWithRenderingMode(.AlwaysOriginal)
         thirdTab.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)

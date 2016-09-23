@@ -71,7 +71,7 @@ extension KQSettingView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -93,14 +93,22 @@ extension KQSettingView: UITableViewDelegate, UITableViewDataSource {
             cell.switchEnable.hidden = true
             break
             
+            
         case 2:
-            cell.title.text = "Cài đặt website"
+            cell.title.text = "Quản lý website"
             cell.icon.image = UIImage(named: "icon-restore")
             cell.info.hidden = true
             cell.switchEnable.hidden = true
             break
             
         case 3:
+            cell.title.text = "Lựa chọn gói dịch vụ"
+            cell.icon.image = UIImage(named: "icon-restore")
+            cell.info.hidden = true
+            cell.switchEnable.hidden = true
+            break
+            
+        case 4:
             cell.title.text = "Nhóm phát triển"
             cell.icon.image = UIImage(named: "icon-team")
             cell.info.hidden = true

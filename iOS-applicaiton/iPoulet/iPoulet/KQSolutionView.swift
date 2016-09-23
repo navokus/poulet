@@ -25,6 +25,7 @@ class KQSolutionView: UIViewController {
         self.navigationItem.title = "Giải pháp"
         
         self.listSolution = NSMutableArray()
+        self.listSolution = KQData.ListError()
         
         self.drawView()
     }
@@ -57,7 +58,7 @@ extension KQSolutionView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.listSolution.count
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -66,8 +67,30 @@ extension KQSolutionView: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let iSolution: KQSolution = self.listSolution.objectAtIndex(indexPath.row) as! KQSolution
+        
         let cell = KQSolutionCell(style: .Default, reuseIdentifier: "solutionCell")
-        cell.title.text = "SQL Injection"
+        cell.title.text = iSolution.title
+        
+        let solutionType: Int = Int(iSolution.type)!
+        
+        switch solutionType {
+        case 1:
+            cell.lblColor.backgroundColor = UIColor.flatRedColor()
+            break
+            
+        case 2:
+            cell.lblColor.backgroundColor = UIColor.flatOrangeColor()
+            break
+            
+        case 3:
+            cell.lblColor.backgroundColor = UIColor.flatBlueColor()
+            break
+            
+        default:
+            cell.lblColor.backgroundColor = UIColor.flatPlumColorDark()
+            break
+        }
         return cell
     }
     

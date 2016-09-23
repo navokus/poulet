@@ -17,6 +17,8 @@ var iRootView: AnyObject!
 
 var iColor: UInt32!
 
+var iListError: NSMutableArray!//[KQSolution]!
+
 
 class KQData: NSObject {
 
@@ -247,6 +249,16 @@ class KQData: NSObject {
     
     class func Color(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
         return UIColor(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: 1.0)
+    }
+    
+    
+    class func ListError() -> NSMutableArray {
+        return iListError
+    }
+    
+    class func setListError(temp: NSMutableArray) {
+        iListError = NSMutableArray()//[KQSolution]()
+        iListError = temp
     }
     
         

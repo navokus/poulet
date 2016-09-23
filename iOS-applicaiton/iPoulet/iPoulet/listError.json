@@ -1,0 +1,68 @@
+[
+        {
+            "id": "1",
+            "title": "SQL Injection",
+            "type": "1",
+            "link": ""
+        },
+        {
+            "id": "2",
+            "title": "Invalidated Parameters",
+            "type": "1",
+            "link": ""
+        },
+        {
+            "id": "3",
+            "title": "Broken Access Control",
+            "type": "2",
+            "link": ""
+        },
+        {
+            "id": "4",
+            "title": "Broken Account and Session Management",
+            "type": "3",
+            "link": ""
+        },
+        {
+            "id": "5",
+            "title": "Cross-Site Scripting Flaws",
+            "type": "1",
+            "link": ""
+        },
+        {
+            "id": "6",
+            "title": "Buffer Overflows",
+            "type": "2",
+            "link": ""
+        },
+        {
+            "id": "7",
+            "title": "Command Injection Flaws",
+            "type": "3",
+            "link": ""
+        },
+        {
+            "id": "8",
+            "title": "Error Handling Problems",
+            "type": "2",
+            "link": ""
+        },
+        {
+            "id": "9",
+            "title": "Insecure Use of Cryptography",
+            "type": "3",
+            "link": ""
+        },
+        {
+            "id": "10",
+            "title": "Remote Administration Flaws",
+            "type": "1",
+            "link": ""
+        },
+        {
+            "id": "11",
+            "title": "Web & Application Server Misconfiguration",
+            "type": "2",
+            "link": ""
+        }
+    ]

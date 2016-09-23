@@ -8,8 +8,9 @@
 
 import UIKit
 import Charts
+import PopupController
 
-class KQMainView: UIViewController {
+class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
 
 //    var errorTable: UITableView!
     
@@ -31,9 +32,19 @@ class KQMainView: UIViewController {
         
         self.navigationItem.title = "Tổng quan"
         
+        let backItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon-link"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(KQMainView.showLink))
+        backItem.tintColor = UIColor.whiteColor()
+        self.navigationItem.rightBarButtonItem = backItem
+        
         self.setHiddenSize()
         
         self.drawView()
+        
+//        KQPouletServer.getListBeacons { (error, data) in
+//            if error != nil {
+//                print("Error: \(error)")
+//            }
+//        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,11 +93,11 @@ class KQMainView: UIViewController {
         self.calendarButton.setTitle("Xem log", forState: .Normal)
         self.calendarButton.titleLabel?.font = UIFont.boldSystemFontOfSize(16.0)
         self.calendarButton.backgroundColor = OB_COLOR
-        self.calendarButton.addTarget(self, action: #selector(KQMainView.scanWebsite), forControlEvents: .TouchDown)
+        self.calendarButton.addTarget(self, action: #selector(KQMainView.showLogView), forControlEvents: .TouchDown)
         self.view.addSubview(self.calendarButton)
         
         self.contactButton = MDButton(frame: CGRectMake(spaceX, KQSize.HeaderHeight() + 4 * spaceY + viewHeight * 7, KQSize.Width() - 2 * spaceX, viewHeight), type: .FloatingAction, rippleColor: UIColor.whiteColor())
-        self.contactButton.setTitle("Liên hệ trợ giúp", forState: .Normal)
+        self.contactButton.setTitle("Trợ giúp", forState: .Normal)
         self.contactButton.titleLabel?.font = UIFont.boldSystemFontOfSize(16.0)
         self.contactButton.backgroundColor = OB_COLOR
         self.contactButton.addTarget(self, action: #selector(KQMainView.scanWebsite), forControlEvents: .TouchDown)
@@ -182,6 +193,51 @@ class KQMainView: UIViewController {
     func scanWebsite() {
         return
     }
+    
+    func showLogView() {
+        let logView = KQLogView()
+        self.navigationController?.pushViewController(logView, animated: true)
+        
+    }
+    
+    func contactSupport() {
+        KQShare().shareEmail("Nhờ trợ giúp!", content: "", recipers: ["quockhai.vn@gmail.com"]) { (mail) in
+            mail.mailComposeDelegate = self
+            self.presentViewController(mail, animated: true, completion: nil)
+        }
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        
+        controller.dismissViewControllerAnimated(true) {
+            self.view.reloadInputViews()
+            self.view.setNeedsDisplay()
+        }
+    }
+    
+    func showLink() {
+        let timePopup = PopupController.create(self)
+        
+        //        timePopup.scrollable = false
+        //        timePopup.tappable = false
+        //        timePopup.movesAlongWithKeyboard = true
+        
+        let timeView = KQLinkPopup()
+        timeView.viewDidLoad()
+        timeView.setTimeHandler = { _ in
+            
+            if timeView.txtTime.text?.isEmpty == true {
+                KQData.showToast("Thời gian học không được để trống")
+                return
+            }
+            
+            
+            timePopup.dismiss()
+        }
+        
+        timePopup.show(timeView)
+    }
+    
 }
 
 extension KQMainView: ChartViewDelegate {
@@ -202,32 +258,6 @@ extension KQMainView: ChartViewDelegate {
     }
 }
 
-
-//extension KQMainView: UITableViewDelegate, UITableViewDataSource {
-//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//         return 1
-//    }
-//    
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 3
-//    }
-//    
-//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return (KQSize.Height() - KQSize.HiddenHeight() - 6 * KQSize.Space())/8
-//    }
-//    
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = KQErrorCell(style: .Default, reuseIdentifier: "errorCell")
-//        
-//        return cell
-//    }
-//    
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        
-//    }
-//    
-//    
-//}
 
 
 
