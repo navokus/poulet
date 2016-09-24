@@ -64,11 +64,12 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
                     print("Error: \(error)")
                     self.statusView.stopAnimation()
                     self.statusView.statusImage.image = UIImage(named: "icon-status-wrong")
-                    
+                    self.statusView.statusLabel.text = "..."
                 } else {
                     let decodedString = NSString(data: data!, encoding: NSUTF8StringEncoding)
                     print("Log: \(decodedString!)")
 //                    KQData.setLog()
+                    self.statusView.statusLabel.text = "Quét thành công!"
                     self.statusView.stopAnimation()
                 }
             }
@@ -261,7 +262,7 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
             }
             
             self.getLogFile(timeView.linkText.text!)
-            self.statusView.statusLabel.text = "Đang quét"
+            self.statusView.statusLabel.text = "Đang quét ..."
             self.statusView.startAnimation()
             timePopup.dismiss()
         }
