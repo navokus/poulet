@@ -44,7 +44,7 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
         
         self.drawView()
         
-//        self.getLogFile()
+        self.getLogFile("khcnbackan.gov.vn")
         
     }
     
