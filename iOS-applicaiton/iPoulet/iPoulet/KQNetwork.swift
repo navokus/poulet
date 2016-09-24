@@ -176,7 +176,7 @@ class KQNetwork: NSObject {
             if countTime == 10 {
                 dispatch_async(dispatch_get_main_queue()) {
                     // update some UI
-                    KQData.showToast("Réseau non disponible!")
+                    KQData.showToast("Vui lòng bật WiFi hoặc 3G!")
                 }
                 
                 countTime = 0

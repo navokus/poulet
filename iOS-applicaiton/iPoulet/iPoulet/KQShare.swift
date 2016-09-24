@@ -20,7 +20,7 @@ class KQShare: NSObject {
             
             completionHandler(facebook: facebookShare)
         } else {
-            KQData.showToast("Connecter votre compte Facebook pour partager!\nS'il vous plaît!")
+            KQData.showToast("Vui lòng đăng nhập tài khoản Facebook!")
         }
     }
     
@@ -33,7 +33,7 @@ class KQShare: NSObject {
             
             completionHandler(facebook: facebookShare)
         } else {
-            KQData.showToast("Connecter votre compte Facebook pour partager!\nS'il vous plaît!")
+            KQData.showToast("Vui lòng đăng nhập tài khoản Facebook!")
         }
     }
     
@@ -45,7 +45,7 @@ class KQShare: NSObject {
             
             completionHandler(twitter: twitterShare)
         } else {
-            KQData.showToast("Connecter votre compte Twitter pour partager!\nS'il vous plaît!")
+            KQData.showToast("Vui lòng đăng nhập tài khoản Twitter!")
         }
     }
     
@@ -57,7 +57,7 @@ class KQShare: NSObject {
             
             completionHandler(twitter: twitterShare)
         } else {
-            KQData.showToast("Connecter votre compte Twitter pour partager!\nS'il vous plaît!")
+            KQData.showToast("Vui lòng đăng nhập tài khoản Twitter!")
         }
     }
     
@@ -70,7 +70,7 @@ class KQShare: NSObject {
             
             completionHandler(mail: mail)
         } else {
-            KQData.showToast("Connecter votre compte émail pour partager!\nS'il vous plaît!")
+            KQData.showToast("Vui lòng đăng nhập tài khoản email!")
         }
     }
     
@@ -83,7 +83,7 @@ class KQShare: NSObject {
             
             completionHandler(mail: mail)
         } else {
-            KQData.showToast("Connecter votre compte émail pour partager!\nS'il vous plaît!")
+            KQData.showToast("Vui lòng đăng nhập tài khoản email!")
         }
     }
     
@@ -95,7 +95,7 @@ class KQShare: NSObject {
             
             completionHandler(message: message)
         } else {
-            KQData.showToast("Votre appareil ne peut pas envoyer un message!")
+            KQData.showToast("Thiết bị của bạn không có chức năng gửi tin nhắn!")
         }
     }
     

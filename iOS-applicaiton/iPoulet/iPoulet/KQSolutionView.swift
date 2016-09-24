@@ -121,7 +121,7 @@ extension KQSolutionView: UITableViewDataSource, UITableViewDelegate {
         if KQNetwork.reachNetwork().isReachable() {
             self.showRSSView(iSolution)
         } else {
-            KQData.showToast("Không có kết nối!")
+            KQData.showToast("Vui lòng bật WiFi hoặc 3G!")
         }
     }
     

@@ -19,9 +19,13 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
 //    var errorThreeView: KQErrorView!
     
     var pieChart: PieChartView!
+    
+    var statusView: KQStatusView!
+    
     var scanButton: MDButton!
     var calendarButton: MDButton!
     var contactButton: MDButton!
+    
     
     var postureStyle: [String]! = ["Rất nguy hiểm", "Nguy hiểm", "Cơ bản"]
     var posturePercent: [Double]! = [69.96, 25.36, 4.68]
@@ -40,7 +44,7 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
         
         self.drawView()
         
-        self.getLogFile()
+//        self.getLogFile()
         
     }
     
@@ -77,10 +81,10 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
         let spaceX: CGFloat = KQSize.Space()
         let spaceY: CGFloat = KQSize.Space()
         
-        let viewHeight: CGFloat = (KQSize.Height() - KQSize.HiddenHeight() - 5 * spaceY)/8
+        let viewHeight: CGFloat = (KQSize.Height() - KQSize.HiddenHeight() - 6 * spaceY)/8
         
         
-        self.pieChart = PieChartView(frame: CGRectMake(spaceX, spaceY + KQSize.HeaderHeight(), KQSize.Width() - 2 * spaceX, viewHeight * 5))
+        self.pieChart = PieChartView(frame: CGRectMake(spaceX, spaceY + KQSize.HeaderHeight(), KQSize.Width() - 2 * spaceX, viewHeight * 4))
         self.pieChart.delegate = self
         self.pieChart.legend.enabled = false
         self.pieChart.descriptionText = ""
@@ -94,21 +98,26 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
         
         self.setPieChartData(self.postureStyle, values: self.posturePercent)
         
-        self.scanButton = MDButton(frame: CGRectMake(spaceX, KQSize.HeaderHeight() + 2 * spaceY + viewHeight * 5, KQSize.Width() - 2 * spaceX, viewHeight), type: .FloatingAction, rippleColor: UIColor.whiteColor())
+        self.statusView = KQStatusView(frame: CGRectMake(spaceX, KQSize.HeaderHeight() + 2 * spaceY + viewHeight * 4, KQSize.Width() - 2 * spaceX, viewHeight))
+        self.statusView.startAnimation()
+        self.view.addSubview(self.statusView)
+            
+        
+        self.scanButton = MDButton(frame: CGRectMake(spaceX, KQSize.HeaderHeight() + 3 * spaceY + viewHeight * 5, KQSize.Width() - 2 * spaceX, viewHeight), type: .FloatingAction, rippleColor: UIColor.whiteColor())
         self.scanButton.setTitle("Quét Website", forState: .Normal)
         self.scanButton.titleLabel?.font = UIFont.boldSystemFontOfSize(16.0)
         self.scanButton.backgroundColor = OB_COLOR
         self.scanButton.addTarget(self, action: #selector(KQMainView.scanWebsite), forControlEvents: .TouchDown)
         self.view.addSubview(self.scanButton)
         
-        self.calendarButton = MDButton(frame: CGRectMake(spaceX, KQSize.HeaderHeight() + 3 * spaceY + viewHeight * 6, KQSize.Width() - 2 * spaceX, viewHeight), type: .FloatingAction, rippleColor: UIColor.whiteColor())
+        self.calendarButton = MDButton(frame: CGRectMake(spaceX, KQSize.HeaderHeight() + 4 * spaceY + viewHeight * 6, KQSize.Width() - 2 * spaceX, viewHeight), type: .FloatingAction, rippleColor: UIColor.whiteColor())
         self.calendarButton.setTitle("Xem log", forState: .Normal)
         self.calendarButton.titleLabel?.font = UIFont.boldSystemFontOfSize(16.0)
         self.calendarButton.backgroundColor = OB_COLOR
         self.calendarButton.addTarget(self, action: #selector(KQMainView.showLogView), forControlEvents: .TouchDown)
         self.view.addSubview(self.calendarButton)
         
-        self.contactButton = MDButton(frame: CGRectMake(spaceX, KQSize.HeaderHeight() + 4 * spaceY + viewHeight * 7, KQSize.Width() - 2 * spaceX, viewHeight), type: .FloatingAction, rippleColor: UIColor.whiteColor())
+        self.contactButton = MDButton(frame: CGRectMake(spaceX, KQSize.HeaderHeight() + 5 * spaceY + viewHeight * 7, KQSize.Width() - 2 * spaceX, viewHeight), type: .FloatingAction, rippleColor: UIColor.whiteColor())
         self.contactButton.setTitle("Trợ giúp", forState: .Normal)
         self.contactButton.titleLabel?.font = UIFont.boldSystemFontOfSize(16.0)
         self.contactButton.backgroundColor = OB_COLOR
@@ -203,6 +212,7 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
     }
     
     func scanWebsite() {
+        self.statusView.stopAnimation()
         return
     }
     
@@ -239,7 +249,7 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
         timeView.setTimeHandler = { _ in
             
             if timeView.txtTime.text?.isEmpty == true {
-                KQData.showToast("Thời gian học không được để trống")
+                KQData.showToast("Địa chỉ website không được để trống!")
                 return
             }
             

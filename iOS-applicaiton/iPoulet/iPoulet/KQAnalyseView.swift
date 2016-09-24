@@ -52,7 +52,7 @@ class KQAnalyseView: UIViewController {
         self.setBarChartData(self.weekDays, values: self.learnTime)
         
         self.recommandTextView = UITextView(frame: CGRectMake(spaceX, 2 * spaceY + KQSize.HeaderHeight() + viewHeight * 5, KQSize.Width() - 2 * spaceX, viewHeight * 3))
-        self.recommandTextView.backgroundColor = OB_COLOR
+        self.recommandTextView.backgroundColor = ALPHA_COLOR
         self.recommandTextView.textColor = UIColor.whiteColor()
         self.recommandTextView.textAlignment = .Left
         self.recommandTextView.layer.cornerRadius = 5.0
