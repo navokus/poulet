@@ -37,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         self.getListErrorFromFile()
+        self.getListProviderFromFile()
         
         // Time idle & Notification
         UIApplication.sharedApplication().idleTimerDisabled = true
@@ -52,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let randomIndex: UInt32 = (arc4random()) % 6
         KQData.setColorIndex(randomIndex)
         
+        KQPouletServer.configManager()
         
         self.setRootViewController()
         
@@ -110,6 +112,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         KQData.setListError(listBeacon)
+    }
+    
+    func getListProviderFromFile() {
+        KQData.setListProvider(NSMutableArray())
+        
+        let jsonPath = NSBundle.mainBundle().pathForResource("listProvider", ofType: "json")
+        let jsonData = NSData(contentsOfFile: jsonPath!)
+        
+        let json = JSON(data: jsonData!)
+        
+        let listBeacon = NSMutableArray()
+        
+        for (_, beacon):(String, JSON) in json {
+            let iBeacon = KQProvider()
+            iBeacon.id = beacon["id"].stringValue
+            iBeacon.title = beacon["title"].stringValue
+            iBeacon.describe = beacon["describe"].stringValue
+            iBeacon.phone = beacon["phone"].stringValue
+            
+            listBeacon.addObject(iBeacon)
+        }
+        
+        KQData.setListProvider(listBeacon)
     }
 
 }

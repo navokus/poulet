@@ -21,6 +21,8 @@ var iListError: NSMutableArray!//[KQSolution]!
 
 var iCurrentItem: KQSolution?
 
+var iListProvider: NSMutableArray!
+
 
 class KQData: NSObject {
 
@@ -273,6 +275,15 @@ class KQData: NSObject {
         iCurrentItem?.title = item.title
         iCurrentItem?.type = item.type
         iCurrentItem?.link = item.link
+    }
+    
+    class func ListProvider() -> NSMutableArray {
+        return iListProvider
+    }
+    
+    class func setListProvider(temp: NSMutableArray) {
+        iListProvider = NSMutableArray()//[KQSolution]()
+        iListProvider = temp
     }
         
 }

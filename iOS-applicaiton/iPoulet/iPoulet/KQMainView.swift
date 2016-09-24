@@ -40,16 +40,28 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
         
         self.drawView()
         
-        KQPouletServer.getLogFile("dantri.com.vn") { (error, data) in
-            if error != nil {
-                print("Error: \(error)")
-            }
-        }
+        self.getLogFile()
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getLogFile() {
+        
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            KQPouletServer.getLogFile("dantri.com.vn") { (error, data) in
+                if error != nil {
+                    print("Error: \(error)")
+                } else {
+                    let decodedString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print("Log: \(decodedString!)")
+                }
+            }
+        }
     }
     
     func setHiddenSize() {

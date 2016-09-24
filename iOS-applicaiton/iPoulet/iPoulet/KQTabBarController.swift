@@ -15,12 +15,14 @@ class KQTabBarController: UITabBarController {
         let firstView = KQMainView()
         let secondView = KQAnalyseView()
         let thirdView = KQSolutionView()
-        let fourthView = KQSettingView()
+        let fourthView = KQRankView()
+        let fifthView = KQSettingView()
         
         let firstNavigation: KQNavigationController = KQNavigationController(rootViewController: firstView)
         let secondNavigation: KQNavigationController = KQNavigationController(rootViewController: secondView)
         let thirdNavigation: KQNavigationController = KQNavigationController(rootViewController: thirdView)
         let fourthNavigation: KQNavigationController = KQNavigationController(rootViewController: fourthView)
+        let fifthNavigation: KQNavigationController = KQNavigationController(rootViewController: fifthView)
 
         let firstTab = UITabBarItem(title: "", image: UIImage(named: "bar-home"), selectedImage: UIImage(named: "bar-home-selected"))
         firstTab.image = firstTab.image?.imageWithRenderingMode(.AlwaysOriginal)
@@ -37,19 +39,25 @@ class KQTabBarController: UITabBarController {
         thirdTab.selectedImage = thirdTab.selectedImage?.imageWithRenderingMode(.AlwaysOriginal)
         thirdTab.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
         
-        let fourthTab = UITabBarItem(title: "", image: UIImage(named: "icon-setting"), selectedImage: UIImage(named: "icon-setting-selected"))
+        let fourthTab = UITabBarItem(title: "", image: UIImage(named: "bar-rank"), selectedImage: UIImage(named: "bar-rank-selected"))
         fourthTab.image = fourthTab.image?.imageWithRenderingMode(.AlwaysOriginal)
         fourthTab.selectedImage = fourthTab.selectedImage?.imageWithRenderingMode(.AlwaysOriginal)
         fourthTab.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
+        
+        let fifthTab = UITabBarItem(title: "", image: UIImage(named: "icon-setting"), selectedImage: UIImage(named: "icon-setting-selected"))
+        fifthTab.image = fifthTab.image?.imageWithRenderingMode(.AlwaysOriginal)
+        fifthTab.selectedImage = fifthTab.selectedImage?.imageWithRenderingMode(.AlwaysOriginal)
+        fifthTab.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
         
         
         firstNavigation.tabBarItem = firstTab
         secondNavigation.tabBarItem = secondTab
         thirdNavigation.tabBarItem = thirdTab
         fourthNavigation.tabBarItem = fourthTab
+        fifthNavigation.tabBarItem = fifthTab
         
         let tabbarController = UITabBarController()
-        tabbarController.viewControllers = [firstNavigation, secondNavigation, thirdNavigation, fourthNavigation]
+        tabbarController.viewControllers = [firstNavigation, secondNavigation, thirdNavigation, fourthNavigation, fifthNavigation]
         tabbarController.selectedIndex = 0
         tabbarController.tabBar.barTintColor = BD_COLOR
 

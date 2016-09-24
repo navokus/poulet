@@ -10,7 +10,18 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+var iManager: Alamofire.Manager!
+
+
+
 class KQPouletServer: NSObject {
+    
+    class func configManager() {
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.timeoutIntervalForRequest = 24.0*60.0*60.0
+        configuration.timeoutIntervalForResource = 24.0*60.0*60.0
+        iManager = Alamofire.Manager(configuration: configuration)
+    }
 
     class func getLogFile(webLink: String,completionHandler: (error: NSError?, data: NSData?) -> Void) {
         
@@ -22,7 +33,9 @@ class KQPouletServer: NSObject {
         
         let requestString = LOG_GET.stringByReplacingOccurrencesOfString("{webname}", withString: webLink)
         
-        Alamofire.request(.GET, requestString, parameters: ["format":"json"]).responseData { (response) in
+        
+        
+        iManager.request(.GET, requestString, parameters: ["format":"json"]).responseData { (response) in
             
 //            let decodedString = NSString(data: response.result.value!, encoding: NSUTF8StringEncoding)
 //            print(decodedString!)
