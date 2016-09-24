@@ -40,11 +40,11 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
         
         self.drawView()
         
-//        KQPouletServer.getListBeacons { (error, data) in
-//            if error != nil {
-//                print("Error: \(error)")
-//            }
-//        }
+        KQPouletServer.getLogFile("dantri.com.vn") { (error, data) in
+            if error != nil {
+                print("Error: \(error)")
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

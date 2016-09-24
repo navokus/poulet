@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class KQPouletServer: NSObject {
 
-    class func getListBeacons(completionHandler: (error: NSError?, data: NSData?) -> Void) {
+    class func getLogFile(webLink: String,completionHandler: (error: NSError?, data: NSData?) -> Void) {
         
         
         //        Alamofire.request(.GET, GET_BEACONS_LOCATION, parameters: ["format":"json"]).responseData { response in
@@ -20,10 +20,12 @@ class KQPouletServer: NSObject {
         //            print(decodedString!)
         //        }
         
-        Alamofire.request(.GET, HELLO, parameters: ["format":"json"]).responseData { (response) in
+        let requestString = LOG_GET.stringByReplacingOccurrencesOfString("{webname}", withString: webLink)
+        
+        Alamofire.request(.GET, requestString, parameters: ["format":"json"]).responseData { (response) in
             
-            let decodedString = NSString(data: response.result.value!, encoding: NSUTF8StringEncoding)
-            print(decodedString!)
+//            let decodedString = NSString(data: response.result.value!, encoding: NSUTF8StringEncoding)
+//            print(decodedString!)
             
             switch response.result {
             case .Success:

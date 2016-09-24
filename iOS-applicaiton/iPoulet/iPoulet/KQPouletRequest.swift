@@ -18,7 +18,9 @@ internal let POULET_API = "http://10.0.0.95:8080"
 
 
 // Beacons
-internal let HELLO = "\(POULET_API)/RiskSolution2016/api/hello"
+
+//http://10.0.0.95:8080/RiskSolution2016/api/scan/website?webname=dantri.com.vn
+internal let LOG_GET = "\(POULET_API)/RiskSolution2016/api/scan/website?webname={webname}"
 
 
 
