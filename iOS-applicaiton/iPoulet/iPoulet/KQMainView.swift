@@ -53,16 +53,23 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func getLogFile() {
+    func getLogFile(weblink: String) {
+        
+        KQData.showToast("Việc quét một trang web có thể mất khoảng 5 phút hoặc lâu hơn. Vui lòng đợi!")
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            KQPouletServer.getLogFile("dantri.com.vn") { (error, data) in
+            KQPouletServer.getLogFile(weblink) { (error, data) in
                 if error != nil {
                     print("Error: \(error)")
+                    self.statusView.stopAnimation()
+                    self.statusView.statusImage.image = UIImage(named: "icon-status-wrong")
+                    
                 } else {
                     let decodedString = NSString(data: data!, encoding: NSUTF8StringEncoding)
                     print("Log: \(decodedString!)")
+//                    KQData.setLog()
+                    self.statusView.stopAnimation()
                 }
             }
         }
@@ -99,7 +106,7 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
         self.setPieChartData(self.postureStyle, values: self.posturePercent)
         
         self.statusView = KQStatusView(frame: CGRectMake(spaceX, KQSize.HeaderHeight() + 2 * spaceY + viewHeight * 4, KQSize.Width() - 2 * spaceX, viewHeight))
-        self.statusView.startAnimation()
+//        self.statusView.startAnimation()
         self.view.addSubview(self.statusView)
             
         
@@ -248,17 +255,21 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
         timeView.viewDidLoad()
         timeView.setTimeHandler = { _ in
             
-            if timeView.txtTime.text?.isEmpty == true {
+            if timeView.linkText.text?.isEmpty == true {
                 KQData.showToast("Địa chỉ website không được để trống!")
                 return
             }
             
-            
+            self.getLogFile(timeView.linkText.text!)
+            self.statusView.statusLabel.text = "Đang quét"
+            self.statusView.startAnimation()
             timePopup.dismiss()
         }
         
         timePopup.show(timeView)
     }
+    
+    
     
 }
 
@@ -279,6 +290,7 @@ extension KQMainView: ChartViewDelegate {
         
     }
 }
+
 
 
 

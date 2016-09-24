@@ -11,7 +11,7 @@ import PopupController
 
 class KQLinkPopup: UIViewController, PopupContentViewController, UITextFieldDelegate {
 
-    var txtTime: UITextField!
+    var linkText: UITextField!
     var btnLogin: MDButton!
     
     var setTimeHandler: (() -> Void)?
@@ -78,17 +78,17 @@ class KQLinkPopup: UIViewController, PopupContentViewController, UITextFieldDele
         //        lineTwo.backgroundColor = UIColor.whiteColor()
         
         
-        self.txtTime = UITextField(frame: CGRectMake(0, viewHeight * 2, width, viewHeight * 1.5))
-        self.txtTime.backgroundColor = ALPHA_COLOR
-        self.txtTime.textColor = TEXT_COLOR
-        self.txtTime.font = UIFont.systemFontOfSize(fontSize)
-        self.txtTime.placeholder = "  Link"
-        self.txtTime.addSubview(lineOne)
-        self.txtTime.delegate = self
+        self.linkText = UITextField(frame: CGRectMake(0, viewHeight * 2, width, viewHeight * 1.5))
+        self.linkText.backgroundColor = ALPHA_COLOR
+        self.linkText.textColor = TEXT_COLOR
+        self.linkText.font = UIFont.systemFontOfSize(fontSize)
+        self.linkText.placeholder = "  Link"
+        self.linkText.addSubview(lineOne)
+        self.linkText.delegate = self
         //        self.txtPassword.text = "trinhthith"
-        self.txtTime.keyboardType = .URL
-        self.txtTime.autocapitalizationType = .None
-        self.view.addSubview(self.txtTime)
+        self.linkText.keyboardType = .URL
+        self.linkText.autocapitalizationType = .None
+        self.view.addSubview(self.linkText)
         
         self.btnLogin = MDButton(frame: CGRectMake(0, viewHeight * 3.5, width, viewHeight * 1.5), type: .Raised, rippleColor: UIColor.whiteColor())
         self.btnLogin.setTitle("Quét", forState: .Normal)

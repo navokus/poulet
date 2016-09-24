@@ -23,6 +23,8 @@ var iCurrentItem: KQSolution?
 
 var iListProvider: NSMutableArray!
 
+var iLog: String!
+
 
 class KQData: NSObject {
 
@@ -284,6 +286,14 @@ class KQData: NSObject {
     class func setListProvider(temp: NSMutableArray) {
         iListProvider = NSMutableArray()//[KQSolution]()
         iListProvider = temp
+    }
+    
+    class func Log() -> String {
+        return iLog
+    }
+    
+    class func setLog(temp: String) {
+        iLog = temp
     }
         
 }
