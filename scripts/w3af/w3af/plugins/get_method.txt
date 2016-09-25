@@ -1,0 +1,45 @@
+./audit/file_upload.py
+        if freq.get_method().upper() != 'POST' or not freq.get_file_vars():
+./audit/buffer_overflow.py
+            desc = desc % (mutant.get_url(), mutant.get_method(), mutant.get_dc())
+./audit/memcachei.py
+                     mutant.get_method(),
+./audit/csrf.py
+        if freq.get_method() == 'GET' and self._strict_mode:
+./output/xml_file.py
+            message_node.setAttribute('method', xml_str(i.get_method()))
+./output/csv_file.py
+                       info.get_method(),
+./crawl/digit_sum.py
+        if fuzzable_request.get_data() or fuzzable_request.get_method() != 'GET':
+./crawl/spider_man.py
+        om.out.debug(msg % (http_request.get_method(), uri))
+./attack/db/sqlmap/lib/request/methodrequest.py
+    def get_method(self):
+        return getattr(self, 'method', urllib2.Request.get_method(self))
+./attack/db/sqlmap/lib/request/redirecthandler.py
+                self._ask_redirect_choice(code, redurl, req.get_method())
+./attack/db/sqlmap/lib/core/common.py
+                method = request.get_method()
+./attack/db/sqlmap/thirdparty/keepalive/keepalive.py
+                h.putrequest(req.get_method() or 'GET', req.get_selector())
+./attack/rfi.py
+            if xss_vuln.get_mutant().get_method() != 'GET':
+./grep/clamav.py
+        if request.get_method() not in self.METHODS or \
+./grep/blank_body.py
+        if response.get_body() == '' and request.get_method() in self.METHODS\
+./grep/password_profiling.py
+        and request.get_method() in self.ALLOWED_METHODS:
+./tests/audit/test_dav.py
+                          set([v.get_method() for v in vulns]))
+./tests/output/test_text_file.py
+            set(sorted([v.get_method() for v in kb_vulns])),
+            set(sorted([v.get_method() for v in file_vulns]))
+./tests/output/test_csv_file.py
+            set(sorted([v.get_method() for v in xss_vulns])),
+            set(sorted([v.get_method() for v in file_vulns]))
+./tests/crawl/test_import_results.py
+        post_frs = [fr for fr in fuzzable_requests if fr.get_method() == 'POST']
+        post_frs = [fr for fr in fuzzable_requests if fr.get_method() == 'POST']
+        post_frs = [fr for fr in fuzzable_requests if fr.get_method() == 'POST']

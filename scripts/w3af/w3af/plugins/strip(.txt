@@ -1,0 +1,273 @@
+./infrastructure/favicon_identification.py
+                line = line.strip()
+./infrastructure/allowed_methods.py
+                    _allowed_methods = [x.strip() for x in _allowed_methods]
+./audit/cors_origin.py
+        allow_methods_list = [m.strip() for m in allow_methods_list]
+        len(self.origin_header_value.strip()) == 0:
+./output/xml_file.py
+        action_status = self._xmldoc.createTextNode(status.strip())
+./output/html_file.py
+    return smart_unicode(details.request.dump().strip())
+    return smart_unicode(details.response.dump().strip())
+./crawl/ria_enumerator.py
+                manifest_url = base_url.url_join(word.strip() + ext)
+./crawl/content_negotiation.py
+                            word = word.strip()
+./crawl/wordpress_fingerprint/generate_release_db.py
+        version_md5 = urllib2.urlopen(version_md5_url).read().strip()
+./crawl/import_results.py
+            line = line.strip()
+./crawl/wordpress_fingerprint.py
+                    line = line.strip()
+./crawl/dir_file_bruter.py
+                directory_name = directory_name.strip()
+                file_name = file_name.strip()
+./crawl/robots_txt.py
+                line = line.strip()
+                    url = url.strip()
+./crawl/pykto.py
+        line = line.strip()
+        message = message.strip()
+./crawl/dot_listing.py
+            yield user, group, filename.strip()
+./crawl/urllist_txt.py
+            line = line.strip()
+            line = line.strip()
+./crawl/find_backdoors.py
+            line = line.strip()
+            line = line.strip()
+./crawl/find_dvcs.py
+            line = lines[offset].strip()
+            filename = lines[offset - 1].strip()
+            line = line.strip()
+./bruteforce/basic_auth.py
+            auth = 'Basic %s' % base64.b64encode(raw_values).strip()
+./attack/local_file_reader.py
+        filtered_response = filtered_response.strip()
+./attack/db/sqlmap/tamper/ifnull2ifisnull.py
+                __ = payload[comma + 1:end].lstrip()
+./attack/db/sqlmap/plugins/generic/databases.py
+                    if not (value or "").strip():
+        dbs = [_ for _ in dbs if _ and _.strip()]
+./attack/db/sqlmap/plugins/generic/users.py
+                                privileges.add(FIREBIRD_PRIVS[privilege.strip()])
+                                    privs = list(privs.strip())
+                        privileges.add(FIREBIRD_PRIVS[privilege.strip()])
+                        privs = list(privs.strip())
+./attack/db/sqlmap/plugins/generic/custom.py
+        query = query.rstrip(';')
+            sfile = sfile.strip()
+            if snippet and all(query.strip().upper().startswith("SELECT") for query in filter(None, snippet.split(';' if ';' in snippet else '\n'))):
+                    query = query.strip()
+./attack/db/sqlmap/plugins/dbms/postgresql/connector.py
+            logger.warn(("(remote) %s" % msg).strip())
+./attack/db/sqlmap/plugins/dbms/access/fingerprint.py
+                retVal = match.group(1).rstrip("%s.mdb" % randStr)
+./attack/db/sqlmap/extra/safe2bin/safe2bin.py
+                retVal = retVal.replace(char, repr(char).strip('\''))
+                retVal = retVal.replace(match.group("result"), (unichr if isinstance(value, unicode) else chr)(ord(binascii.unhexlify(match.group("result").lstrip("\\x")))))
+            retVal = retVal.replace(repr(char).strip('\''), char)
+                    retVal = retVal.replace(match.group("result"), chr(ord(binascii.unhexlify(match.group("result").lstrip("\\?")))))
+./attack/db/sqlmap/extra/shutils/duplicates.py
+            item = item.strip()
+./attack/db/sqlmap/extra/sqlharvest/sqlharvest.py
+                        table = match.group("result").strip().strip("`\"'").replace('"."', ".").replace("].[", ".").strip('[]')
+./attack/db/sqlmap/lib/request/basic.py
+            encoding = encoding[:encoding.find(delimiter)].strip()
+./attack/db/sqlmap/lib/request/connect.py
+                        name = re.sub(r"[^\w]", "", name.strip())
+                        name = re.sub(r"[^\w]", "", name.strip())
+                    original = replacement = ex.text.strip()
+                        conf.evalCode = conf.evalCode.replace(ex.text.strip(), replacement)
+./attack/db/sqlmap/lib/takeover/xp_cmdshell.py
+                self.xpCmdshellExecCmd(cmd.rstrip(" & "))
+            self.xpCmdshellExecCmd(cmd.rstrip(" & "))
+                        new_output += "%s\n" % line.strip("\r")
+                    if line is None or i in (0, len(lines) - 1) and not line.strip():
+                output = _.rstrip('\n')
+./attack/db/sqlmap/lib/takeover/web.py
+                self.webBaseUrl = "%s://%s:%d%s/" % (conf.scheme, conf.hostname, conf.port, directory[match.start():].rstrip('/'))
+                        self.webBaseUrl = "%s://%s:%d%s/" % (conf.scheme, conf.hostname, conf.port, directory[match.start():].rstrip('/'))
+./attack/db/sqlmap/lib/core/wordlist.py
+                retVal = self.iter.next().rstrip()
+                retVal = self.iter.next().rstrip()
+./attack/db/sqlmap/lib/core/option.py
+                        host = _.group(0).strip()
+                if not line.strip() and index == len(lines) - 1:
+                line = line.strip('\r')
+                if len(line.strip()) == 0 and method and method != HTTPMETHOD.GET and data is None:
+                    value = value.strip().replace("\r", "").replace("\n", "")
+            data = data.rstrip("\r\n") if data else data
+            kb.targets.add((line.strip(), conf.method, conf.data, conf.cookie, None))
+            kb.targets.add((item.strip(), None, None, None, None))
+                page, _, _ = Request.getPage(url=target.strip(), crawling=True, raise404=False)
+            tfile = tfile.strip()
+                line = line.strip()
+                    value = value.strip()
+            if post and post.strip():
+            if not headerValue.strip():
+                header, value = (_.lstrip() for _ in headerValue.split(":", 1))
+                errMsg = "invalid header value: %s. Valid header format is 'name:value'" % repr(headerValue).lstrip('u')
+        test = readInput(message.rstrip('\n'), default=items.index(MOBILES.IPHONE) + 1)
+        conf.testFilter = conf.testFilter.strip('*+')
+./attack/db/sqlmap/lib/core/agent.py
+            table = table.split(conf.db)[-1].strip('.')
+./attack/db/sqlmap/lib/core/update.py
+            logger.error("update could not be completed ('%s')" % re.sub(r"\W+", " ", stderr).strip())
+./attack/db/sqlmap/lib/core/revision.py
+                    filePath = os.path.join(_, ".git", content.replace("ref: ", "")).strip()
+./attack/db/sqlmap/lib/core/testing.py
+                path = path.replace(os.sep, '.').lstrip('.')
+./attack/db/sqlmap/lib/core/common.py
+            return infoStr.lstrip()
+                parts[-1] = parts[-1].rstrip()
+        choice = readInput(message, default="1").strip()
+                        item = item.replace(BRUTE_DOC_ROOT_TARGET_MARK, target).replace("//", '/').rstrip('/')
+            question = item.split('=')[0].strip()
+                conf.hostname = details.group("hostname").strip()
+    conf.scheme = urlSplit.scheme.strip().lower() if not conf.forceSSL else "https"
+    conf.path = urlSplit.path.strip()
+    conf.hostname = hostnamePort[0].strip()
+    conf.ipv6 = conf.hostname != conf.hostname.strip("[]")
+    conf.hostname = conf.hostname.strip("[]").replace(CUSTOM_INJECTION_MARK_CHAR, "")
+                absFilePath = match.group("result").strip()
+        retVal = retVal.strip("\r\n")
+        retVal = htmlunescape(retVal.strip())
+        infoMsg = infoMsg.rstrip(", ")
+    retVal = re.sub(r"(?s);\s+", "; ", retVal).strip("\r\n")
+            line = line.strip()
+                line = line.strip()
+                retVal = htmlunescape(match.group("result")).replace("<br>", "\n").strip()
+        _ = match.group(1).strip().strip('-')
+    return filter(None, (_.group('result').strip() for _ in re.finditer(TEXT_TAG_REGEX, page)))
+        value = Backend.getVersion().replace(" ", "").rstrip('.')
+        retVal = value.__str__().lstrip('[').rstrip(']')
+                retVal = "`%s`" % retVal.strip("`")
+                retVal = "\"%s\"" % retVal.strip("\"")
+                retVal = "\"%s\"" % retVal.strip("\"").upper()
+                retVal = "[%s]" % retVal.strip("[]")
+        name = mnemonic.split('=')[0].replace("-", "").strip()
+                    opt = opt.strip('-')
+                value = value.strip().lower()
+                lines = filter(None, (line.strip() for line in content.split("\n") if not line.startswith('#')))
+./attack/db/sqlmap/lib/techniques/union/use.py
+            kb.uChar = char.replace("[CHAR]", conf.uChar if conf.uChar.isdigit() else "'%s'" % conf.uChar.strip("'"))
+./attack/db/sqlmap/lib/techniques/blind/inference.py
+                if len(partialValue) > INFERENCE_BLANK_BREAK and partialValue[-INFERENCE_BLANK_BREAK:].isspace() and partialValue.strip(' ')[-1:] != '\n':
+                    finalValue = finalValue.rstrip() if len(finalValue) > 1 else finalValue
+./attack/db/sqlmap/lib/techniques/error/use.py
+                                output = output.rstrip()
+            if kb.fileReadMode and output and output.strip():
+./attack/db/sqlmap/lib/utils/api.py
+        if statement.lstrip().upper().startswith("SELECT"):
+            command = raw_input("api%s> " % (" (%s)" % taskid if taskid else "")).strip().lower()
+            taskid = (command.split()[1] if ' ' in command else "").strip("'\"")
+./attack/db/sqlmap/lib/utils/hash.py
+                hash_ = hash_.split()[0] if hash_ and hash_.strip() else hash_
+                if (kb.data.cachedUsersPasswords[user][i] or "").strip():
+            hash_ = hash_.split()[0] if hash_ and hash_.strip() else hash_
+                hash_ = hash_.split()[0] if hash_ and hash_.strip() else hash_
+./attack/db/sqlmap/lib/utils/google.py
+            choice = readInput(message, default="1").strip().upper()
+./attack/db/sqlmap/lib/parse/payloads.py
+            if child.text and child.text.strip():
+./attack/db/sqlmap/lib/parse/cmdline.py
+                    command = raw_input("sqlmap-shell> ").strip()
+./attack/db/sqlmap/lib/parse/sitemap.py
+            url = match.group(1).strip()
+./attack/db/sqlmap/lib/controller/controller.py
+        data = "".join(set(map(lambda x: _formatInjection(x), kb.injections))).rstrip("\n")
+./attack/db/sqlmap/lib/controller/checks.py
+                                candidates = filter(None, (_.strip() if _.strip() in (kb.pageTemplate or "") and _.strip() not in falsePage and _.strip() not in threadData.lastComparisonHeaders else None for _ in (trueSet - falseSet)))
+                                    infoMsg = "%s parameter '%s' seems to be '%s' injectable (with --string=\"%s\")" % (paramType, parameter, title, repr(conf.string).lstrip('u').strip("'"))
+                                        kb.futileUnion = readInput(msg, default="Y").strip().upper() == 'N'
+                    choice = readInput(msg, default=str(conf.verbose), checkBatch=False).strip()
+./attack/db/sqlmap/sqlmap.py
+            file_ = re.sub(r"\.\./", '/', file_).lstrip('/')
+./attack/db/sqlmap/thirdparty/ansistrm/ansistrm.py
+                if message.lstrip() != message:
+./attack/db/sqlmap/thirdparty/beautifulsoup/beautifulsoup.py
+                strings.append(current.strip())
+                text = text.strip()
+./attack/db/sqlmap/thirdparty/bottle/bottle.py
+        scriptname = request.environ.get('SCRIPT_NAME', '').strip('/') + '/'
+        location = self.router.build(routename, **kargs).lstrip('/')
+        return '/' + self.environ.get('PATH_INFO','').lstrip('/')
+        return urljoin(self.script_name, self.path.lstrip('/'))
+        script_name = self.environ.get('SCRIPT_NAME', '').strip('/')
+        if proxy: return [ip.strip() for ip in proxy.split(',')]
+            status = status.strip()
+            return self.content_type.split('charset=')[-1].split(';')[0].strip()
+            out += '%s: %s\n' % (name.title(), value.strip())
+    filename = os.path.abspath(os.path.join(root, filename.strip('/\\')))
+        ims = parse_date(ims.split(";")[0].strip())
+    path = '/' + func.__name__.replace('__','/').lstrip('/')
+    pathlist = path_info.strip('/').split('/')
+    scriptlist = script_name.strip('/').split('/')
+                codebuffer.append('  ' * len(stack) + line.strip())
+            sline = line.lstrip()
+                line = line.split('%',1)[1].lstrip() # Full line following the %
+                cline = self.split_comment(line).strip()
+                    code('#end(%s) %s' % (stack.pop(), line.strip()[3:]))
+                if line.strip().startswith('%%'):
+./attack/db/sqlmap/thirdparty/gprof2dot/gprof2dot.py
+        self.__line = line.rstrip('\r\n')
+            data = data.strip()
+        line = line.rstrip('\r\n')
+        values = values.strip().split()
+        if line.strip():
+        value = value.strip()
+        value = value.strip()
+./attack/db/sqlmap/thirdparty/pagerank/pagerank.py
+        rank = f.read().strip()[9:]
+./attack/db/sqlmap/thirdparty/prettyprint/prettyprint.py
+                if child.nodeType == Node.TEXT_NODE and len(child.data.strip()) == 0:
+        minidom._write_data(writer, "%s"%(self.data.strip()))
+./attack/db/sqlmap/thirdparty/pydes/pyDes.py
+                       data[-self.block_size:].rstrip(pad)
+./attack/db/sqlmap/thirdparty/clientform/clientform.py
+def compress_text(text): return _compress_re.sub(" ", text.strip())
+                lines[i] = "    " + lines[i].strip()
+        contents = self._option.get("contents", "").strip()
+        self._text = attrs.get("__text").strip()
+./attack/os_commanding.py
+        header_value = header_value.strip()
+        return header_value.replace(self.NEW_LINE, '\n').strip()
+./attack/xpath.py
+        if command.strip() == 'getxml':
+                current = current.strip()
+./attack/payloads/payloads/rootkit_hunter.py
+            fname = fname.strip()
+./attack/payloads/payloads/users.py
+                if line.strip() != '':
+./attack/payloads/payloads/list_processes.py
+                cmd = cmd.strip()
+./attack/payloads/payloads/portscan.py
+            port_list = [port.strip() for port in port_list]
+./attack/payloads/base_payload.py
+            return textwrap.dedent(self.__doc__).strip()
+./grep/private_ip.py
+                header_ip_address = header_ip_address.strip()
+                ip_address = ip_address.strip()
+                ip_address = ip_address.strip()
+./grep/ssn.py
+                ssn = ssn.strip()
+./grep/cross_domain_js.py
+                self._secure_js_domains.append(domain.strip())
+./grep/csp.py
+        if vuln_desc is None or vuln_desc.strip() == "":
+        ref = vuln_desc.lower().strip()        
+                    if csp_vuln.desc.strip().lower() == ref:
+./grep/xss_protection_header.py
+        heaver_value = heaver_value.strip()
+./grep/user_defined_regex.py
+                    current_regex = regex.strip()
+./grep/analyze_cookies.py
+                cookie_header_value = headers[header_name].strip()
+        cstr = cookie_object.output(header='').strip()
+        self.set_cookie_string(cookie_object.output(header='').strip())
+./grep/content_sniffing.py
+            if ct_options_value.strip().lower() == NOSNIFF:
+./grep/html_comments.py
+        comment = comment.strip()

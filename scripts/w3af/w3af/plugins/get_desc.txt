@@ -1,0 +1,251 @@
+./infrastructure/find_vhosts.py
+            om.out.information(v.get_desc())
+                om.out.information(i.get_desc())
+./infrastructure/zone_h.py
+                om.out.information(v.get_desc())
+                om.out.information(i.get_desc())
+./infrastructure/fingerprint_os.py
+            om.out.information(i.get_desc())
+./infrastructure/dns_wildcard.py
+                om.out.information(i.get_desc())
+                om.out.information(i.get_desc())
+                om.out.information(i.get_desc())
+./infrastructure/favicon_identification.py
+                    om.out.information(i.get_desc())
+                om.out.information(i.get_desc())
+./infrastructure/fingerprint_WAF.py
+        om.out.information(i.get_desc())
+./infrastructure/detect_reverse_proxy.py
+        om.out.information(i.get_desc())
+./infrastructure/php_eggs.py
+                om.out.information(i.get_desc())
+                om.out.information(i.get_desc())
+./infrastructure/server_status.py
+            om.out.information(i.get_desc())
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+./infrastructure/frontpage_version.py
+            om.out.information(i.get_desc())
+        om.out.information(i.get_desc())
+        om.out.information(i.get_desc())
+./infrastructure/afd.py
+            om.out.information(i.get_desc())
+./infrastructure/hmap.py
+                om.out.information(i.get_desc())
+./infrastructure/server_header.py
+            om.out.information(i.get_desc())
+            om.out.information(i.get_desc())
+                        om.out.information(i.get_desc())
+./infrastructure/finger_pks.py
+            om.out.information(i.get_desc())
+./infrastructure/detect_transparent_proxy.py
+            om.out.information(i.get_desc())
+./audit/xss.py
+        om.out.vulnerability(v.get_desc())
+./audit/xst.py
+                om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+./audit/frontpage.py
+                om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+./output/email_report.py
+            data += v.get_desc() + '\n'
+./output/xml_file.py
+            desc_str = xml_str(i.get_desc(with_id=False))
+./output/csv_file.py
+                       info.get_desc()]
+./crawl/ria_enumerator.py
+            om.out.information(i.get_desc())
+                om.out.information(i.get_desc())
+                    om.out.vulnerability(v.get_desc(),
+                    om.out.information(i.get_desc())
+./crawl/ghdb.py
+                om.out.vulnerability(v.get_desc(), severity=severity.LOW)
+./crawl/genexus_xml.py
+            om.out.information(i.get_desc())
+./crawl/wordpress_enumerate_users.py
+        om.out.information(i.get_desc())
+./crawl/content_negotiation.py
+                om.out.information(i.get_desc())
+./crawl/oracle_discovery.py
+            om.out.information(i.get_desc())
+./crawl/wordpress_fullpathdisclosure.py
+                om.out.information(i.get_desc())
+./crawl/wordpress_fingerprint.py
+                    om.out.information(i.get_desc())
+            om.out.information(i.get_desc())
+            om.out.information(i.get_desc())
+                om.out.information(i.get_desc())
+./crawl/phpinfo.py
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+                om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+                om.out.information(i.get_desc())
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+                om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+                om.out.information(i.get_desc())
+                om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+                om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+                om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+                om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+                om.out.information(i.get_desc())
+                om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+                om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+                om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+            om.out.information(i.get_desc())
+            om.out.information(i.get_desc())
+            om.out.information(i.get_desc())
+            om.out.information(i.get_desc())
+./crawl/robots_txt.py
+            om.out.information(i.get_desc())
+./crawl/pykto.py
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+./crawl/dot_listing.py
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+./crawl/urllist_txt.py
+                om.out.information(i.get_desc())
+./crawl/find_backdoors.py
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+./crawl/phishtank.py
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+./crawl/url_fuzzer.py
+                om.out.information(i.get_desc())
+./crawl/dwsync_xml.py
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+./crawl/find_captchas.py
+                om.out.information(i.get_desc())
+./crawl/find_dvcs.py
+                om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+./bruteforce/basic_auth.py
+                    om.out.vulnerability(v.get_desc(),
+./attack/payloads/payload_handler.py
+    return payload.get_desc()
+./attack/payloads/base_payload.py
+    def get_desc(self):
+./grep/http_auth_detect.py
+            om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+                om.out.vulnerability(v.get_desc(), severity=v.get_severity())
+        om.out.information(i.get_desc())
+        om.out.information(v.get_desc())
+./grep/html_comments.py
+            om.out.information(i.get_desc())
+        om.out.information(i.get_desc())
+./tests/infrastructure/test_hmap.py
+        self.assertIn('WSGIServer/0.1', info.get_desc(), info.get_desc())
+        self.assertIn('WSGIServer/0.1', info.get_desc(), info.get_desc())
+./tests/infrastructure/test_xssed_dot_com.py
+        self.assertIn('According to xssed.com', info.get_desc())
+./tests/infrastructure/test_allowed_methods.py
+        self.assertTrue(info.get_desc().startswith(msg))
+./tests/infrastructure/test_fingerprint_WAF.py
+        self.assertEqual(info.get_desc(with_id=False), desc)
+        self.assertIn(self.IBM_WAF, info.get_desc())
+./tests/infrastructure/test_zone_h.py
+            info.get_desc().startswith('The target site was defaced'))
+./tests/infrastructure/test_server_status.py
+            'remote server version: "Apache/2.' in server[0].get_desc(),
+            server[0].get_desc())
+./tests/infrastructure/test_favicon_identification.py
+        self.assertTrue('tomcat' in info.get_desc().lower(), info.get_desc())
+./tests/infrastructure/test_find_vhosts.py
+        self.assertTrue('the virtual host name is: "intranet"' in info.get_desc(), info.get_desc())
+./tests/infrastructure/test_http_vs_https_dist.py
+        self.assertTrue('are the same' in info.get_desc())
+./tests/audit/test_blind_sqli.py
+        self.assertFalse('time delays' in vuln.get_desc())
+        self.assertFalse('time delays' in vuln.get_desc())
+./tests/audit/test_ssl_certificate.py
+            self.assertIn(estring, info.get_desc())
+./tests/audit/test_cors_origin.py
+        self.assertNotEqual(vuln.get_desc(), None)
+        self.assertNotEqual(vuln.get_desc(), None)
+        self.assertIsNotNone(vulns[0].get_desc())
+        self.assertIsNotNone(vulns[1].get_desc())
+        self.assertNotEqual(vuln.get_desc(), None)
+        self.assertNotEqual(vuln.get_desc(), None)
+        self.assertNotEqual(vuln.get_desc(), None)
+        self.assertNotEqual(vuln.get_desc(), None)
+        self.assertNotEqual(vuln.get_desc(), None)
+./tests/crawl/test_find_dvcs.py
+            self.assertIn(repo, vuln_repo.get_desc().lower())
+./tests/crawl/test_wordpress_fingerprint.py
+        descriptions = set([i.get_desc(with_id=False) for i in infos])
+./tests/crawl/test_wordpress_enumerate_users.py
+        enum_users = set([user_re.match(i.get_desc()).group(1) for i in infos])
+./tests/helper.py
+        self.assert_all_get_desc_work()
+    def assert_all_get_desc_work(self):
+        Since the InfoSet does some custom rendering at get_desc(), I want to
+                info.get_desc()
+./tests/grep/test_objects.py
+        self.assertTrue('"object"' in i.get_desc())
+        self.assertTrue('"applet"' in i.get_desc())
+./tests/grep/test_csp.py
+        vuln_descs = set([v.get_desc(with_id=False) for v in vulns])
+./tests/grep/test_dot_net_event_validation.py
+            desc = vuln.get_desc(with_id=False)
+./tests/grep/test_cross_domain_js.py
+        self.assertEqual(info_set.get_desc(), expected_desc)
+./tests/grep/test_meta_tags.py
+        joined_desc = ''.join([v.get_desc() for v in vulns])
+        self.assertIn('pass', info.get_desc())
+        self.assertEqual(info_set.get_desc(), expected_desc)
+./tests/grep/test_strange_reason.py
+        self.assertEqual(info_set.get_desc(), expected_desc)
+./tests/grep/test_strange_http_codes.py
+        self.assertEqual(info_set.get_desc(), expected_desc)
+./tests/grep/test_feeds.py
+        self.assertTrue('RSS' in i.get_desc())
+        self.assertTrue('3' in i.get_desc())
+        self.assertTrue('OPML' in i.get_desc())
+        self.assertTrue('3' in i.get_desc())
+        self.assertTrue('OPML' in i.get_desc())
+        self.assertTrue('3' in i.get_desc())
+        self.assertTrue('RSS' in i.get_desc())
+        self.assertTrue('unknown' in i.get_desc())
+./tests/grep/test_websockets_links.py
+        self.assertEqual(info_set.get_desc(), expected_desc)
+./tests/grep/test_strange_headers.py
+        self.assertEqual(info.get_desc(), expected_desc)
+./tests/grep/test_get_emails.py
+        self.assertEqual(info_set.get_desc(), expected_desc)
+./tests/grep/test_content_sniffing.py
+        self.assertEqual(info_set.get_desc(), expected_desc)
+        self.assertEqual(info_set.get_desc(), expected_desc)
+./tests/grep/test_dom_xss.py
+        self.assertTrue('document.URL' in v.get_desc())
+./tests/grep/test_xss_protection_header.py
+        self.assertEqual(info_set.get_desc(), expected_desc)
+./tests/grep/test_private_ip.py
+        self.assertEqual(info_set.get_desc(), expected_desc)
+./tests/grep/test_form_autocomplete.py
+        self.assertEqual(info_set.get_desc(), expected_desc)
+./tests/grep/test_analyze_cookies.py
+        self.assertEqual(info_set.get_desc(), expected_desc)
+        self.assertEqual(info_set.get_desc(), expected_desc)
+        self.assertTrue(any([True for i in fingerprint if msg in i.get_desc()]))
+        self.assertTrue(any([True for i in false_secure if msg in i.get_desc()]))
+        self.assertEqual(info_set.get_desc(), expected_desc)
+        self.assertEqual(info_set.get_desc(), expected_desc)
+./tests/grep/test_user_defined_regex.py
+        self.assertTrue(info_obj.get_desc(
+        self.assertIn('data.txt', info_obj.get_desc())
+./tests/grep/test_strict_transport_security.py
+        self.assertEqual(info_set.get_desc(), expected_desc)
+        self.assertEqual(info_set.get_desc(), expected_desc)
+./tests/grep/test_clamav.py
+        self.assertIn('ClamAV identified malware', finding.get_desc())
+            self.assertIn('ClamAV identified malware', finding.get_desc())
+./tests/grep/test_click_jacking.py
+                      v.get_desc())
+./tests/test_basic.py
+                    self.assertIsInstance(opt.get_desc(), basestring)
+                self.assertTrue(isinstance(plugin.get_desc(), basestring))
+                self.assertGreaterEqual(len(plugin.get_desc()), 20,
+                                        msg % (plugin.get_desc(),
+                                               len(plugin.get_desc()),
