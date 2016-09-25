@@ -29,7 +29,7 @@ class KQStatusView: UIView {
         
         
         self.statusImage = UIImageView(frame: CGRectMake(0, 0, height, height))
-        self.statusImage.image = UIImage(named: "icon-status")
+        self.statusImage.image = UIImage(named: "icon-normal")
         self.addSubview(self.statusImage)
         
         self.indicator = NVActivityIndicatorView(frame: CGRectMake(0, 0, height, height), type: .BallScaleRippleMultiple, color: UIColor.whiteColor() , padding: 5)

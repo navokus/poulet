@@ -81,14 +81,14 @@ extension KQSettingView: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             cell.title.text = "Đặt lịch quét"
-            cell.icon.image = UIImage(named: "icon-alarm")
+            cell.icon.image = UIImage(named: "icon-calendar")
             cell.info.hidden = true
             cell.switchEnable.hidden = true
             break
         
         case 1:
             cell.title.text = "Cài đặt cảnh báo"
-            cell.icon.image = UIImage(named: "icon-restore")
+            cell.icon.image = UIImage(named: "icon-noti")
             cell.info.hidden = true
             cell.switchEnable.hidden = true
             break
@@ -96,14 +96,14 @@ extension KQSettingView: UITableViewDelegate, UITableViewDataSource {
             
         case 2:
             cell.title.text = "Quản lý website"
-            cell.icon.image = UIImage(named: "icon-restore")
+            cell.icon.image = UIImage(named: "icon-website")
             cell.info.hidden = true
             cell.switchEnable.hidden = true
             break
             
         case 3:
-            cell.title.text = "Lựa chọn gói dịch vụ"
-            cell.icon.image = UIImage(named: "icon-restore")
+            cell.title.text = "Các gói dịch vụ"
+            cell.icon.image = UIImage(named: "icon-service")
             cell.info.hidden = true
             cell.switchEnable.hidden = true
             break

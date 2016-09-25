@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal let APP_CFG = [CFG_COLOR_RAND, CFG_FIRT_RUN, CFG_FONT_NAME, CFG_RATE_APPS, CFG_DATE_BEACON, CFG_DEVICE_ID, CFG_USER_REGISTED, CFG_DATE_CALENDAR]
+internal let APP_CFG = [CFG_COLOR_RAND, CFG_FIRT_RUN, CFG_FONT_NAME, CFG_RATE_APPS, CFG_DATE_BEACON, CFG_DEVICE_ID, CFG_USER_REGISTED, CFG_DATE_CALENDAR, CFG_WEB_LINK]
 
 var iDictConfig: NSMutableDictionary!
 
@@ -28,6 +28,7 @@ class KQConfigure: NSObject {
         dictConfig.setObject("2016-05-30 10:45:53", forKey: CFG_DATE_CALENDAR)
         dictConfig.setObject("nil", forKey: CFG_DEVICE_ID)
         dictConfig.setObject("0", forKey: CFG_USER_REGISTED)
+        dictConfig.setObject("nil", forKey: CFG_WEB_LINK)
         
 //        dictConfig.setObject("nil", forKey: CFG_TOKEN_APP)
 //        dictConfig.setObject("nil", forKey: CFG_TOKEN_USER)
@@ -57,6 +58,7 @@ class KQConfigure: NSObject {
         
         dictConfig.setObject("nil", forKey: CFG_DEVICE_ID)
         dictConfig.setObject("0", forKey: CFG_USER_REGISTED)
+        dictConfig.setObject("nil", forKey: CFG_WEB_LINK)
 //        dictConfig.setObject("2016-05-30 10:45:53", forKey: CFG_DATE_PAGE)
         
 //        dictConfig.setObject("nil", forKey: CFG_TOKEN_APP)

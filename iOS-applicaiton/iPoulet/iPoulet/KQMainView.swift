@@ -9,6 +9,7 @@
 import UIKit
 import Charts
 import PopupController
+import SwiftyJSON
 
 class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
 
@@ -26,9 +27,22 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
     var calendarButton: MDButton!
     var contactButton: MDButton!
     
-    
-    var postureStyle: [String]! = ["Rất nguy hiểm", "Nguy hiểm", "Cơ bản"]
+    var postureTwoStyle: [String]! = ["Rất nguy hiểm", "Nguy hiểm"]
+    var postureThreeStyle: [String]! = ["Rất nguy hiểm", "Nguy hiểm", "Cơ bản"]
     var posturePercent: [Double]! = [69.96, 25.36, 4.68]
+    
+    
+//    var listError: NSMutableArray!
+    
+    var viewHeight: CGFloat!
+    
+//    var indicatorView: KQIndicatorView!
+    
+    var isScan: Bool!
+    var isLog: Bool!
+    
+    
+    var numberButton: MDButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,40 +54,182 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
         backItem.tintColor = UIColor.whiteColor()
         self.navigationItem.rightBarButtonItem = backItem
         
+//        self.listError = NSMutableArray()
+        
+        self.isScan = false
+        self.isLog = false
+        
         self.setHiddenSize()
         
+        
+        self.viewHeight = (KQSize.Height() - KQSize.HiddenHeight() - 6 * KQSize.Space())/8
+        
+//        self.drawIndicator()
         self.drawView()
         
-        self.getLogFile("khcnbackan.gov.vn")
+//        self.getLogFile("khcnbackan.gov.vn")
+//        
+//        self.updatePieChart()
+        
+//        self.getLogContent("dantri.com.vn")
         
     }
+    
+    
+//    func updatePieChart() {
+//        let tempPercent: [Double] = [36.0, 43.0, 21.0]
+//        
+//        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+//        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+//            sleep(5)
+//            dispatch_async(dispatch_get_main_queue()) {
+//                self.setPieChartData(self.postureStyle, values: tempPercent)
+//                self.statusView.stopAnimation()
+//                self.statusView.statusImage.image = UIImage(named: "icon-status")
+//                self.statusView.statusLabel.text = "Quét thành công!"
+//            }
+//        }
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func getLogFile(weblink: String) {
+//    func drawIndicator() {
+//        self.indicatorView = KQIndicatorView(frame: CGRectMake(0, 0, KQSize.Width(), KQSize.Height()))
+//        self.indicatorView.parentViewController = self
+//    }
+    
+    func getLogContent(weblink: String) {
+        if !KQNetwork.reachNetwork().isReachable() {
+            KQData.showToast("Vui lòng bật WiFi hoặc 3G!")
+            return
+        }
         
-        KQData.showToast("Việc quét một trang web có thể mất khoảng 5 phút hoặc lâu hơn. Vui lòng đợi!")
+        if self.isScan == true {
+            KQData.showToast("Hệ thống đang thực hiện tác vụ. Vui lòng đợi!")
+            return
+        }
+        
+//        self.indicatorView.startAnimation()
+        self.statusView.statusLabel.text = "Đang lấy log ..."
+        self.statusView.startAnimation()
+        self.isLog = true
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            KQPouletServer.getLogFile(weblink) { (error, data) in
+            KQPouletServer.getLogContent(weblink) { (error, data) in
                 if error != nil {
+                    self.isLog = false
                     print("Error: \(error)")
-                    self.statusView.stopAnimation()
-                    self.statusView.statusImage.image = UIImage(named: "icon-status-wrong")
-                    self.statusView.statusLabel.text = "..."
+                    sleep(3)
+                    dispatch_async(dispatch_get_main_queue()) {
+//                        self.indicatorView.stopAnimation()
+                        self.statusView.stopAnimation()
+                        self.statusView.statusImage.image = UIImage(named: "icon-status-wrong")
+                        self.statusView.statusLabel.text = "..."
+                    }
                 } else {
                     let decodedString = NSString(data: data!, encoding: NSUTF8StringEncoding)
                     print("Log: \(decodedString!)")
-//                    KQData.setLog()
-                    self.statusView.statusLabel.text = "Quét thành công!"
-                    self.statusView.stopAnimation()
+                    
+                    self.isLog = false
+                    self.getLogFromData(data!)
+                    
+                    sleep(3)
+                    dispatch_async(dispatch_get_main_queue()) {
+//                        self.indicatorView.stopAnimation()
+                        self.statusView.stopAnimation()
+                        self.statusView.statusImage.image = UIImage(named: "icon-status")
+                        self.statusView.statusLabel.text = "Lấy log thành công!"
+                    }
                 }
             }
         }
+    }
+    
+    func getLogFromData(data: NSData) {
+        let json = JSON(data: data)
+        let logContent = json["log"].string
+        
+        KQData.setLog(logContent!)
+        
+        self.showLogView()
+    }
+    
+    func getErrorStatistic(weblink: String) {
+        if !KQNetwork.reachNetwork().isReachable() {
+            KQData.showToast("Vui lòng bật WiFi hoặc 3G!")
+            return
+        }
+        
+        if self.isScan == true {
+            KQData.showToast("Hệ thống đang thực hiện tác vụ. Vui lòng đợi!")
+            return
+        }
+        
+        
+        KQData.showToast("Vui lòng đợi!\nViệc quét một trang web có thể mất khoảng 5 phút hoặc lâu hơn.")
+        
+        self.statusView.statusLabel.text = "Đang quét ..."
+        self.statusView.startAnimation()
+        self.isScan = true
+        
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            KQPouletServer.getErrorStatic(weblink) { (error, data) in
+                if error != nil {
+                    self.isScan = false
+                    print("Error: \(error)")
+                    sleep(5)
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.statusView.stopAnimation()
+                        self.statusView.statusImage.image = UIImage(named: "icon-status-wrong")
+                        self.statusView.statusLabel.text = "..."
+                    }
+                } else {
+                    self.isScan = false
+                    
+                    let decodedString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print("Log: \(decodedString!)")
+//                    KQData.setLog()
+                    sleep(5)
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.initializeListError(data!)
+                        self.statusView.stopAnimation()
+                        self.statusView.statusImage.image = UIImage(named: "icon-status")
+                        self.statusView.statusLabel.text = "Quét thành công!"
+                    }
+                }
+            }
+        }
+    }
+    
+    func initializeListError(data: NSData) {
+        let json = JSON(data: data)
+        let dangerousErrors = json["dangerousErrors"].double! * 100
+//        self.listError.addObject(dangerousErrors!)
+        
+        let insignifiantErrors = json["undefinedErrors"].double! * 100
+//        self.listError.addObject(insignifiantErrors!)
+        
+        let highSecurity = json["insignificantErrors"].double! * 100
+//        self.listError.addObject(highSecurity!)
+        
+        var errorPercent: [Double]
+        if highSecurity == 0 {
+            errorPercent = [dangerousErrors, insignifiantErrors]
+            self.setPieChartData(self.postureTwoStyle, values: errorPercent)
+            
+        } else {
+            errorPercent = [dangerousErrors, insignifiantErrors, highSecurity]
+            self.setPieChartData(self.postureThreeStyle, values: errorPercent)
+        }
+        
+        let totalError = json["totalErrors"].int
+        
+        self.numberButton.setTitle("\(totalError!)", forState: .Normal)
     }
     
     func setHiddenSize() {
@@ -89,10 +245,14 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
         let spaceX: CGFloat = KQSize.Space()
         let spaceY: CGFloat = KQSize.Space()
         
-        let viewHeight: CGFloat = (KQSize.Height() - KQSize.HiddenHeight() - 6 * spaceY)/8
         
+        self.numberButton = MDButton(frame: CGRectMake(KQSize.Width() - self.viewHeight * 0.8 - spaceX,  KQSize.HeaderHeight() + spaceX, self.viewHeight * 0.8, self.viewHeight * 0.8), type: .FloatingAction, rippleColor: UIColor.whiteColor())
+        self.numberButton.setTitle("", forState: .Normal)
+        self.numberButton.titleLabel?.font = UIFont.boldSystemFontOfSize(16.0)
+        self.numberButton.backgroundColor = OB_COLOR
+        self.view.addSubview(self.numberButton)
         
-        self.pieChart = PieChartView(frame: CGRectMake(spaceX, spaceY + KQSize.HeaderHeight(), KQSize.Width() - 2 * spaceX, viewHeight * 4))
+        self.pieChart = PieChartView(frame: CGRectMake(spaceX, spaceY + KQSize.HeaderHeight(), KQSize.Width() - 2 * spaceX, self.viewHeight * 4))
         self.pieChart.delegate = self
         self.pieChart.legend.enabled = false
         self.pieChart.descriptionText = ""
@@ -101,31 +261,42 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
 //        self.pieChart.centerText = "20"
 //        let textAttribute = NSDictionary(objects: [UIFont.boldSystemFontOfSize(20), UIColor.whiteColor()], forKeys: [NSFontAttributeName, NSForegroundColorAttributeName])
 //        self.pieChart.centerAttributedText = textAttribute
+        
         self.pieChart.transparentCircleColor = UIColor.clearColor()
+        
         self.view.addSubview(self.pieChart)
         
-        self.setPieChartData(self.postureStyle, values: self.posturePercent)
+        self.setPieChartData(self.postureThreeStyle, values: self.posturePercent)
         
-        self.statusView = KQStatusView(frame: CGRectMake(spaceX, KQSize.HeaderHeight() + 2 * spaceY + viewHeight * 4, KQSize.Width() - 2 * spaceX, viewHeight))
+//        self.errorTable = UITableView(frame: CGRectMake(0, spaceY, KQSize.Width(), self.viewHeight * 3 + KQSize.HeaderHeight() + spaceX))
+//        self.errorTable.dataSource = self
+//        self.errorTable.delegate = self
+//        self.errorTable.backgroundColor = UIColor.clearColor()
+//        self.errorTable.separatorStyle = UITableViewCellSeparatorStyle.None
+//        self.errorTable.scrollEnabled = false
+//        self.view.addSubview(self.errorTable)
+
+        
+        self.statusView = KQStatusView(frame: CGRectMake(spaceX, KQSize.HeaderHeight() + 2 * spaceY + self.viewHeight * 4, KQSize.Width() - 2 * spaceX, self.viewHeight))
 //        self.statusView.startAnimation()
         self.view.addSubview(self.statusView)
             
         
-        self.scanButton = MDButton(frame: CGRectMake(spaceX, KQSize.HeaderHeight() + 3 * spaceY + viewHeight * 5, KQSize.Width() - 2 * spaceX, viewHeight), type: .FloatingAction, rippleColor: UIColor.whiteColor())
+        self.scanButton = MDButton(frame: CGRectMake(spaceX, KQSize.HeaderHeight() + 3 * spaceY + self.viewHeight * 5, KQSize.Width() - 2 * spaceX, self.viewHeight), type: .FloatingAction, rippleColor: UIColor.whiteColor())
         self.scanButton.setTitle("Quét Website", forState: .Normal)
         self.scanButton.titleLabel?.font = UIFont.boldSystemFontOfSize(16.0)
         self.scanButton.backgroundColor = OB_COLOR
         self.scanButton.addTarget(self, action: #selector(KQMainView.scanWebsite), forControlEvents: .TouchDown)
         self.view.addSubview(self.scanButton)
         
-        self.calendarButton = MDButton(frame: CGRectMake(spaceX, KQSize.HeaderHeight() + 4 * spaceY + viewHeight * 6, KQSize.Width() - 2 * spaceX, viewHeight), type: .FloatingAction, rippleColor: UIColor.whiteColor())
+        self.calendarButton = MDButton(frame: CGRectMake(spaceX, KQSize.HeaderHeight() + 4 * spaceY + self.viewHeight * 6, KQSize.Width() - 2 * spaceX, self.viewHeight), type: .FloatingAction, rippleColor: UIColor.whiteColor())
         self.calendarButton.setTitle("Xem log", forState: .Normal)
         self.calendarButton.titleLabel?.font = UIFont.boldSystemFontOfSize(16.0)
         self.calendarButton.backgroundColor = OB_COLOR
-        self.calendarButton.addTarget(self, action: #selector(KQMainView.showLogView), forControlEvents: .TouchDown)
+        self.calendarButton.addTarget(self, action: #selector(KQMainView.checkWeblink), forControlEvents: .TouchDown)
         self.view.addSubview(self.calendarButton)
         
-        self.contactButton = MDButton(frame: CGRectMake(spaceX, KQSize.HeaderHeight() + 5 * spaceY + viewHeight * 7, KQSize.Width() - 2 * spaceX, viewHeight), type: .FloatingAction, rippleColor: UIColor.whiteColor())
+        self.contactButton = MDButton(frame: CGRectMake(spaceX, KQSize.HeaderHeight() + 5 * spaceY + self.viewHeight * 7, KQSize.Width() - 2 * spaceX, self.viewHeight), type: .FloatingAction, rippleColor: UIColor.whiteColor())
         self.contactButton.setTitle("Trợ giúp", forState: .Normal)
         self.contactButton.titleLabel?.font = UIFont.boldSystemFontOfSize(16.0)
         self.contactButton.backgroundColor = OB_COLOR
@@ -160,6 +331,7 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
         pieChartData.setValueFormatter(chartFormatter)
         pieChartData.setValueFont(UIFont.italicSystemFontOfSize(12.0))
         pieChartData.setValueTextColor(UIColor.whiteColor())
+        
         
         self.pieChart.data = pieChartData
         
@@ -220,7 +392,14 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
     }
     
     func scanWebsite() {
-        self.statusView.stopAnimation()
+        let weblink: String = KQConfigure.DictConfig().objectForKey(CFG_WEB_LINK) as! String
+        
+        if weblink == "nil" {
+            KQData.showToast("Vui lòng nhập địa chỉ Website!")
+        } else {
+            self.getErrorStatistic(weblink)
+        }
+        
         return
     }
     
@@ -228,6 +407,17 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
         let logView = KQLogView()
         self.navigationController?.pushViewController(logView, animated: true)
         
+        
+    }
+    
+    func checkWeblink() {
+        let weblink: String = KQConfigure.DictConfig().objectForKey(CFG_WEB_LINK) as! String
+        
+        if weblink == "nil" {
+            KQData.showToast("Vui lòng nhập địa chỉ Website!")
+        } else {
+            self.getLogContent(weblink)
+        }
     }
     
     func contactSupport() {
@@ -261,9 +451,11 @@ class KQMainView: UIViewController, MFMailComposeViewControllerDelegate {
                 return
             }
             
-            self.getLogFile(timeView.linkText.text!)
-            self.statusView.statusLabel.text = "Đang quét ..."
-            self.statusView.startAnimation()
+            
+            KQConfigure.DictConfig().setObject(timeView.linkText.text!, forKey: CFG_WEB_LINK)
+            KQFileHandle.writeConfigure(KQConfigure.DictConfig())
+            
+            self.getErrorStatistic(timeView.linkText.text!)
             timePopup.dismiss()
         }
         
@@ -291,6 +483,68 @@ extension KQMainView: ChartViewDelegate {
         
     }
 }
+
+//extension KQMainView: UITableViewDataSource, UITableViewDelegate {
+//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        return 1
+//    }
+//    
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 3
+//    }
+//    
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return self.viewHeight
+//    }
+//    
+//    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        
+//        var numberError: String = ""
+//        
+//        if self.listError.count > 0 {
+//            numberError = "\(self.listError.objectAtIndex(indexPath.row))"
+//        }
+//        
+//        
+//        
+//        let cell = KQErrorCell(style: .Default, reuseIdentifier: "errorCell")
+//        cell.iconNumber.setTitle(numberError, forState: .Normal)
+//        
+//        switch indexPath.row {
+//        case 0:
+//            cell.title.text = "Lỗi rất nguy hiểm"
+//            cell.lblColor.backgroundColor = UIColor.flatRedColor()
+//            cell.iconNumber.backgroundColor = UIColor.flatRedColor()
+//            break
+//            
+//        case 1:
+//            cell.title.text = "Lỗi nguy hiểm"
+//            cell.lblColor.backgroundColor = UIColor.flatOrangeColor()
+//            cell.iconNumber.backgroundColor = UIColor.flatOrangeColor()
+//            break
+//            
+//        case 2:
+//            cell.title.text = "Lỗi khác"
+//            cell.lblColor.backgroundColor = UIColor.flatBlueColor()
+//            cell.iconNumber.backgroundColor = UIColor.flatBlueColor()
+//            break
+//            
+//        default:
+//            cell.lblColor.backgroundColor = UIColor.flatPlumColorDark()
+//            break
+//        }
+//        return cell
+//    }
+//    
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+////        let iSolution: KQSolution = self.listError.objectAtIndex(indexPath.row) as! KQSolution
+//        
+////        KQData.setCurrentItem(iSolution)
+//        
+//    }
+//    
+//}
 
 
 

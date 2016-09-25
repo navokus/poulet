@@ -15,7 +15,7 @@ class KQAnalyseView: UIViewController {
     var recommandTextView: UITextView!
     
     var weekDays: [String]! = ["03/16", "04/16", "05/16", "06/16", "07/16", "08/16", "09/16"]
-    var learnTime: [Double]! = [10.0, 8.0, 12.0, 12.0, 6.0, 15.0, 17.0]
+    var learnTime: [Double]! = [58.0, 45.0, 40.0, 48.0, 50.0, 38.0, 53.0]
 
     
     override func viewDidLoad() {
@@ -58,7 +58,7 @@ class KQAnalyseView: UIViewController {
         self.recommandTextView.layer.cornerRadius = 5.0
         self.recommandTextView.layer.masksToBounds = true
         self.recommandTextView.font = UIFont.italicSystemFontOfSize(16.0)
-        self.recommandTextView.text = "Hệ thống cần được nâng cấp lên phiên bản mới nhất cho các công cụ sau: ..."
+        self.recommandTextView.text = "Các thành phần của hệ thống cần được nâng cấp lên phiên bản mới nhất."
         self.recommandTextView.editable = false
 
         self.view.addSubview(self.recommandTextView)

@@ -26,6 +26,8 @@
 #define CFG_DATE_BEACON   @"beaconDate"
 #define CFG_DATE_CALENDAR   @"calendarDate"
 
+#define CFG_WEB_LINK   @"webLink"
+
 //#define CFG_TOKEN_APP   @"appToken"
 //#define CFG_TOKEN_USER   @"appToken"
 //#define CFG_TOKEN_APP_TIME   @"appTokenTime"

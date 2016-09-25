@@ -32,13 +32,13 @@ class KQNotification: NSObject {
         let numberOfNotifications = 64
         
         for index in 0 ..< numberOfNotifications {
-//            let timeNotification = Int(30 * (index + 1))
-            let timeNotification = Int(timeNotif * 60 * (index + 1))
+            let timeNotification = Int(60 * (index + 1))
+//            let timeNotification = Int(timeNotif * 60 * (index + 1))
             
             //🐖 🐄 🐓 🐕 🐀 🐇 🐳 🐉
-            let notificationMessage = "🐖 🐄 🐓 🐕 🐀 🐇 🐳 🐉\nMoon Walkers"
+            let notificationMessage = "Cảnh báo: Website của bạn vừa bị phát hiện thêm một lỗi mới!"
             
-            LocalNotificationHelper.sharedInstance().scheduleNotificationWithKey("\(index)", title: "Memorize", message: notificationMessage, seconds: Double(timeNotification), userInfo: ["title": "Memorize", "message": "\(notificationMessage)", "index": "\(index)"])
+            LocalNotificationHelper.sharedInstance().scheduleNotificationWithKey("\(index)", title: "DSmart", message: notificationMessage, seconds: Double(timeNotification), userInfo: ["title": "DSmart", "message": "\(notificationMessage)", "index": "\(index)"])
         }
         
         print("[KQNotification]: Set Local Notification!")

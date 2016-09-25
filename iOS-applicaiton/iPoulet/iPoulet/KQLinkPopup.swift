@@ -85,8 +85,8 @@ class KQLinkPopup: UIViewController, PopupContentViewController, UITextFieldDele
         self.linkText.placeholder = "  Link"
         self.linkText.addSubview(lineOne)
         self.linkText.delegate = self
-        //        self.txtPassword.text = "trinhthith"
-        self.linkText.keyboardType = .URL
+//        self.linkText.text = "khcnbackan.gov.vn"
+//        self.linkText.keyboardType = .URL
         self.linkText.autocapitalizationType = .None
         self.view.addSubview(self.linkText)
         

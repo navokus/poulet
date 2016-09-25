@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PopupController
 
 class KQSolutionView: UIViewController {
 
@@ -22,7 +23,7 @@ class KQSolutionView: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.navigationItem.title = "Giải pháp"
+        self.navigationItem.title = "Wiki"
         
         self.listSolution = NSMutableArray()
         self.listSolution = KQData.ListError()
@@ -116,13 +117,15 @@ extension KQSolutionView: UITableViewDataSource, UITableViewDelegate {
             iSolution = self.listSolution.objectAtIndex(indexPath.row) as! KQSolution
         }
         
-        KQData.setCurrentItem(iSolution)
+//        KQData.setCurrentItem(iSolution)
+//        
+//        if KQNetwork.reachNetwork().isReachable() {
+//            self.showRSSView(iSolution)
+//        } else {
+//            KQData.showToast("Vui lòng bật WiFi hoặc 3G!")
+//        }
         
-        if KQNetwork.reachNetwork().isReachable() {
-            self.showRSSView(iSolution)
-        } else {
-            KQData.showToast("Vui lòng bật WiFi hoặc 3G!")
-        }
+        self.showSolutionDetails()
     }
     
     func showRSSView(rssItem: KQSolution) {
@@ -130,6 +133,28 @@ extension KQSolutionView: UITableViewDataSource, UITableViewDelegate {
         rssView.webLink = NSURL(string: rssItem.link)
         
         self.navigationController?.pushViewController(rssView, animated: true)
+    }
+    
+    func showSolutionDetails() {
+        let timePopup = PopupController.create(self)
+        
+        //        timePopup.scrollable = false
+        //        timePopup.tappable = false
+        //        timePopup.movesAlongWithKeyboard = true
+        
+        let timeView = KQSolutionPopup()
+        timeView.viewDidLoad()
+//        timeView.setTimeHandler = { _ in
+//            
+//            if timeView.linkText.text?.isEmpty == true {
+//                KQData.showToast("Địa chỉ website không được để trống!")
+//                return
+//            }
+//    
+//            timePopup.dismiss()
+//        }
+        
+        timePopup.show(timeView)
     }
 }
 

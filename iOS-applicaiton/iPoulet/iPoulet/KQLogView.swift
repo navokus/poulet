@@ -42,13 +42,13 @@ class KQLogView: UIViewController {
         let viewHeight: CGFloat = (KQSize.Height() - KQSize.HiddenHeight() - 2 * spaceY)
         
         self.logTextView = UITextView(frame: CGRectMake(spaceY, spaceY + KQSize.HeaderHeight(), KQSize.Width() - 2 * spaceY, viewHeight))
-        self.logTextView.backgroundColor = OB_COLOR
+        self.logTextView.backgroundColor = ALPHA_COLOR
         self.logTextView.textColor = UIColor.whiteColor()
         self.logTextView.textAlignment = .Left
         self.logTextView.layer.cornerRadius = 5.0
         self.logTextView.layer.masksToBounds = true
         self.logTextView.font = UIFont.italicSystemFontOfSize(16.0)
-        self.logTextView.text = ""
+        self.logTextView.text = KQData.Log()
         self.logTextView.editable = false
         self.view.addSubview(self.logTextView)
     }
