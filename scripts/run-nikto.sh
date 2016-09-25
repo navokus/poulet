@@ -79,8 +79,8 @@ check_domain() {
 	domain=`echo $1 | cut -d'/' -f3 |  tr '[:upper:]' '[:lower:]'` ;
 	_URL="$protocol://$domain";
 	_DOMAIN="$domain";
-	LOGFILE="WORKING_PATH/$_DOMAIN.$NiktoFormat";
-	TEXTFILE="WORKING_PATH/$_DOMAIN.txt";
+	LOGFILE="$WORKING_PATH/$_DOMAIN.$NiktoFormat";
+	TEXTFILE="$WORKING_PATH/$_DOMAIN.txt";
 	
 	compare_str "$protocol" "https" ;
 	if [ "$?" == 0 ]; then 
